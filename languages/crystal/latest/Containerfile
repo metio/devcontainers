@@ -1,0 +1,6 @@
+# Image for Crystal development
+# Based on the official image available at https://hub.docker.com/r/crystallang/crystal
+
+FROM docker.io/crystallang/crystal:latest
+
+# TODO: install https://github.com/elbywan/crystalline

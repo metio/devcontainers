@@ -1,0 +1,4 @@
+# Image for Terraform development
+# Based on the official image available at https://hub.docker.com/r/hashicorp/terraform
+
+FROM hashicorp/terraform:latest

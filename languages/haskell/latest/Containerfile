@@ -1,0 +1,6 @@
+# Image for Haskell development
+# Based on the official image available at https://hub.docker.com/_/haskell
+
+FROM docker.io/library/haskell:latest
+
+# TODO: install https://github.com/haskell/haskell-language-server

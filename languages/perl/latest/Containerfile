@@ -1,0 +1,6 @@
+# Image for Perl development
+# Based on the official image available at https://hub.docker.com/_/perl
+
+FROM docker.io/library/perl:latest
+
+# TODO: install https://github.com/FractalBoy/perl-language-server

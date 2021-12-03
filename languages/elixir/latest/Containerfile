@@ -1,0 +1,6 @@
+# Image for Elixir development
+# Based on the official image available at https://hub.docker.com/_/elixir
+
+FROM docker.io/library/elixir:latest
+
+# TODO: install https://github.com/elixir-lsp/elixir-ls

@@ -1,0 +1,6 @@
+# Image for Go development
+# Based on the official image available at https://hub.docker.com/_/golang
+
+FROM docker.io/library/golang:latest
+
+# TODO: install https://github.com/sourcegraph/go-langserver

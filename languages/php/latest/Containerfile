@@ -1,0 +1,6 @@
+# Image for PHP development
+# Based on the official image available at https://hub.docker.com/_/php
+
+FROM docker.io/library/php:latest
+
+# TODO: install https://github.com/felixfbecker/php-language-server

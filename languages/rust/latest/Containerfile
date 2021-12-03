@@ -1,0 +1,7 @@
+# Image for Rust development
+# Based on the official image available at https://hub.docker.com/_/rust
+
+FROM docker.io/library/rust:latest
+
+RUN curl --silent --location --remote-name \
+  https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-11-29/rust-analyzer-x86_64-unknown-linux-gnu.gz

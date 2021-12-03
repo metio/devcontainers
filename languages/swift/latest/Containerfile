@@ -1,0 +1,6 @@
+# Image for Swift development
+# Based on the official image available at https://hub.docker.com/_/swift
+
+FROM docker.io/library/swift:latest
+
+# TODO: install https://github.com/apple/sourcekit-lsp

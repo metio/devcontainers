@@ -1,0 +1,6 @@
+# Image for Nix development
+# Based on the official image available at https://hub.docker.com/r/nixos/nix
+
+FROM docker.io/nixos/nix:latest
+
+# TODO: install https://github.com/nix-community/rnix-lsp

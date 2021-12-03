@@ -1,0 +1,6 @@
+# Image for Haxe development
+# Based on the official image available at https://hub.docker.com/_/haxe
+
+FROM docker.io/library/haxe:latest
+
+# TODO: install https://github.com/vshaxe/haxe-language-server

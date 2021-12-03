@@ -1,0 +1,6 @@
+# Image for R development
+# Based on the official image available at https://hub.docker.com/_/r-base
+
+FROM docker.io/library/r-base:latest
+
+# TODO: install https://github.com/REditorSupport/languageserver

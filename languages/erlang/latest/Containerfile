@@ -1,0 +1,6 @@
+# Image for Erlang development
+# Based on the official image available at https://hub.docker.com/_/erlang
+
+FROM docker.io/library/erlang:latest
+
+# TODO: install https://erlang-ls.github.io/
