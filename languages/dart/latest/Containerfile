@@ -1,6 +1,0 @@
-# Image for Dart development
-# Based on the official image available at https://hub.docker.com/_/dart
-
-FROM docker.io/library/dart:latest
-
-# TODO: install https://github.com/dart-lang/sdk/blob/main/pkg/analysis_server/tool/lsp_spec/README.md
