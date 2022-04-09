@@ -4,9 +4,9 @@
 FROM docker.io/library/clojure:latest
 
 RUN apt-get update && \
-    apt-get install --assume-yes curl && \
-    rm -rf /var/lib/apt/lists/*
-RUN curl https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install --output install-clojure-lsp.sh && \
+    apt-get install --assume-yes curl unzip && \
+    rm -rf /var/lib/apt/lists/* && \
+    curl https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install --output install-clojure-lsp.sh && \
     chmod +x ./install-clojure-lsp.sh && \
-    ./install-clojure-lsp.sh
-RUN apt-get purge --assume-yes --auto-remove curl
+    ./install-clojure-lsp.sh --static --dir /usr/local/bin --download-dir ./ && \
+    apt-get purge --assume-yes --auto-remove curl unzip
