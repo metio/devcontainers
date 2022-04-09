@@ -3,4 +3,4 @@
 
 FROM docker.io/library/python:latest
 
-# TODO: install https://github.com/python-lsp/python-lsp-server
+RUN pip install python-lsp-server

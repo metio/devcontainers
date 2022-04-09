@@ -16,6 +16,7 @@ with [cosign](https://github.com/sigstore/cosign).
 - [ghcr.io/metio/dev-containers/nodejs](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fnodejs): [NodeJS](https://nodejs.org/) + [TypeScript Language Server](https://github.com/typescript-language-server/typescript-language-server)
 - [ghcr.io/metio/dev-containers/perl](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fperl): [Perl](https://www.perl.org/) + [Perl Language Server](https://github.com/FractalBoy/perl-language-server)
 - [ghcr.io/metio/dev-containers/prolog](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fprolog): [SWI Prolog](https://www.swi-prolog.org/) + [Prolog Language Server](https://github.com/jamesnvc/lsp_server)
+- [ghcr.io/metio/dev-containers/python](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fpython): [Python](https://www.python.org/) + [Python Language Server](https://github.com/python-lsp/python-lsp-server)
 - [ghcr.io/metio/dev-containers/r](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fr): [R](https://www.r-project.org/) + [R Language Server](https://github.com/REditorSupport/languageserver)
 
 ## License
