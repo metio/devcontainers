@@ -4,4 +4,3 @@
 FROM docker.io/library/perl:latest
 
 RUN cpanm PLS
-
