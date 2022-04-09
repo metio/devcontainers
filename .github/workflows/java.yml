@@ -1,11 +1,11 @@
-name: Java (latest)
+name: Java (latest-graalvm)
 on:
   push:
     branches:
       - main
     paths:
       - .github/workflows/java.yml
-      - languages/java/latest/**
+      - languages/java/latest-graalvm/**
   schedule:
     - cron:  15 3 * * MON
 env:
@@ -44,6 +44,17 @@ jobs:
           file: ./languages/${{ env.LANGUAGE }}/${{ env.VERSION }}/Containerfile
           push: true
           tags: ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
+          labels: |
+            org.opencontainers.image.title="${{ env.LANGUAGE }}"
+            org.opencontainers.image.description="Image for ${{ env.LANGUAGE }} development"
+            org.opencontainers.image.licenses="CC0-1.0"
+            org.opencontainers.image.vendor="metio.wtf"
+            org.opencontainers.image.url="https://github.com/${{ github.repository }}"
+            org.opencontainers.image.documentation="https://github.com/${{ github.repository }}"
+            org.opencontainers.image.source="https://github.com/${{ github.repository }}/languages/${{ env.LANGUAGE }}/${{ env.VERSION }}"
+            org.opencontainers.image.version="${{ env.VERSION }}"
+            org.opencontainers.image.revision="${{ github.sha }}"
+            org.opencontainers.image.created="${{ steps.timestamp.outputs.date }}"
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - id: sign
