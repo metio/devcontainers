@@ -3,4 +3,4 @@
 
 FROM docker.io/library/r-base:latest
 
-# TODO: install https://github.com/REditorSupport/languageserver
+RUN R -e 'install.packages("languageserver")'
