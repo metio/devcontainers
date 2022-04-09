@@ -44,4 +44,4 @@ jobs:
         name: Sign Image
         run: cosign sign ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
         env:
-          COSIGN_EXPERIMENTAL: 1
+          COSIGN_EXPERIMENTAL: "true"

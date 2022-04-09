@@ -42,6 +42,9 @@ jobs:
           tags: ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
       - id: sign
         name: Sign Image
-        run: cosign sign ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
+        run: |
+          echo ${COSIGN_KEY} > /tmp/cosign.key && \
+          cosign sign --key /tmp/cosign.key ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
         env:
-          COSIGN_EXPERIMENTAL: 1
+          COSIGN_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
