@@ -1,0 +1,51 @@
+name: Java (latest)
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/java.yml
+      - languages/java/latest/**
+  schedule:
+    - cron:  15 3 * * MON
+env:
+  LANGUAGE: java
+  VERSION: latest-graalvm
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    steps:
+      - id: checkout
+        name: Checkout Code
+        uses: actions/checkout@v3
+      - id: cosign
+        name: Install Cosign
+        uses: sigstore/cosign-installer@main
+      - id: buildx
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - id: login
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - id: publish
+        name: Publish Image
+        uses: docker/build-push-action@v2
+        with:
+          builder: ${{ steps.buildx.outputs.name }}
+          context: ./languages/${{ env.LANGUAGE }}/${{ env.VERSION }}/
+          file: ./languages/${{ env.LANGUAGE }}/${{ env.VERSION }}/Containerfile
+          push: true
+          tags: ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
+      - id: sign
+        name: Sign Image
+        run: cosign sign ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
+        env:
+          COSIGN_EXPERIMENTAL: "true"

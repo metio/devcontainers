@@ -106,6 +106,13 @@ haxe: ## Build image for Haxe development
 haxe-lint: ## Lint image for Haxe development
 	$(call hadolint,haxe,latest)
 
+.PHONY: java-graalvm
+java: ## Build image for Java development with GraalVM
+	$(call build-image,java,latest-graalvm)
+.PHONY: java-graalvm-lint
+java-graalvm-lint: ## Lint image for Java development with GraalVM
+	$(call hadolint,java,latest-graalvm)
+
 .PHONY: julia
 julia: ## Build image for Julia development
 	$(call build-image,julia,latest)
