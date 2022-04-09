@@ -4,8 +4,8 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/nim.yml
-      - languages/nim/latest/**
+      - .github/workflows/perl.yml
+      - languages/perl/latest/**
   schedule:
     - cron:  15 3 * * MON
 env:
