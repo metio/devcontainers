@@ -3,6 +3,10 @@
 
 FROM docker.io/library/clojure:latest
 
-RUN curl -O https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install && \
+RUN apt-get update && \
+    apt-get install -y curl && \
+    rm -rf /var/lib/apt/lists/* && \
+    curl -O https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install && \
     chmod a+x install && \
-    ./install
+    ./install && \
+    apt-get purge -y --auto-remove curl
