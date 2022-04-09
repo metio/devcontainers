@@ -3,4 +3,4 @@
 
 FROM docker.io/nixos/nix:latest
 
-# TODO: install https://github.com/nix-community/rnix-lsp
+RUN nix-env -i -f https://github.com/nix-community/rnix-lsp/archive/master.tar.gz

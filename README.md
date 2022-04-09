@@ -10,6 +10,7 @@ with [cosign](https://github.com/sigstore/cosign).
 - [ghcr.io/metio/dev-containers/haskell](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fhaskell): [Haskell](https://www.haskell.org/) + [Haskell Language Server](https://github.com/haskell/haskell-language-server)
 - [ghcr.io/metio/dev-containers/julia](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fjulia): [Julia](https://julialang.org/) + [Julia Language Server](https://github.com/julia-vscode/LanguageServer.jl)
 - [ghcr.io/metio/dev-containers/nim](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fnim): [Nim](https://nim-lang.org/) + [Nim Language Server](https://github.com/PMunch/nimlsp)
+- [ghcr.io/metio/dev-containers/nix](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fnix): [Nix](https://nixos.org/) + [Nix Language Server](https://github.com/nix-community/rnix-lsp)
 - [ghcr.io/metio/dev-containers/nodejs](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fnodejs): [NodeJS](https://nodejs.org/) + [TypeScript Language Server](https://github.com/typescript-language-server/typescript-language-server)
 - [ghcr.io/metio/dev-containers/perl](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fperl): [Perl](https://www.perl.org/) + [Perl Language Server](https://github.com/FractalBoy/perl-language-server)
 
