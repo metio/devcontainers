@@ -1,15 +1,15 @@
-name: NodeJS (latest)
+name: Nim (latest)
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/nodejs.yml
-      - languages/nodejs/latest/**
+      - .github/workflows/nim.yml
+      - languages/nim/latest/**
   schedule:
     - cron:  15 3 * * MON
 env:
-  LANGUAGE: nodejs
+  LANGUAGE: nim
   VERSION: latest
 jobs:
   publish:
