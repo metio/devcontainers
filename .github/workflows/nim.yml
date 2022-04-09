@@ -43,7 +43,8 @@ jobs:
       - id: sign
         name: Sign Image
         run: |
-          echo ${{ secrets.COSIGN_PRIVATE_KEY }} > cosign.key && \
+          echo ${COSIGN_KEY} > cosign.key && \
           cosign sign --key cosign.key ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
         env:
+          COSIGN_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
           COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
