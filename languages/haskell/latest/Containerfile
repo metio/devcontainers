@@ -3,4 +3,7 @@
 
 FROM docker.io/library/haskell:latest
 
-# TODO: install https://github.com/haskell/haskell-language-server
+RUN curl -O https://downloads.haskell.org/~ghcup/x86_64-linux-ghcup && \
+    mv x86_64-linux-ghcup /usr/local/bin/ghcup && \
+    chmod +x /usr/local/bin/ghcup && \
+    ghcup install hls
