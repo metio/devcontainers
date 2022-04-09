@@ -14,6 +14,10 @@ env:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
     steps:
       - id: checkout
         name: Checkout Code
@@ -42,9 +46,6 @@ jobs:
           tags: ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
       - id: sign
         name: Sign Image
-        run: |
-          echo ${COSIGN_KEY} > cosign.key && \
-          cosign sign --key cosign.key ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
+        run: cosign sign ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
         env:
-          COSIGN_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
-          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+          COSIGN_EXPERIMENTAL: "true"
