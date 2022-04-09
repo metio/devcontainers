@@ -3,4 +3,4 @@
 
 FROM docker.io/library/golang:latest
 
-# TODO: install https://github.com/sourcegraph/go-langserver
+RUN go install golang.org/x/tools/gopls@latest
