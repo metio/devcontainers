@@ -3,4 +3,6 @@
 
 FROM docker.io/library/clojure:latest
 
-# TODO: install https://github.com/clojure-lsp/clojure-lsp
+RUN curl -O https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install && \
+    chmod a+x install && \
+    ./install
