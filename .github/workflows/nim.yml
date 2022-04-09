@@ -35,6 +35,9 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - id: timestamp
+        name: Create Timestamp
+        run: echo "::set-output name=date::$(date --rfc-3339=seconds)"
       - id: publish
         name: Publish Image
         uses: docker/build-push-action@v2
