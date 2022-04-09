@@ -18,6 +18,7 @@ with [cosign](https://github.com/sigstore/cosign).
 - [ghcr.io/metio/dev-containers/prolog](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fprolog): [SWI Prolog](https://www.swi-prolog.org/) + [Prolog Language Server](https://github.com/jamesnvc/lsp_server)
 - [ghcr.io/metio/dev-containers/python](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fpython): [Python](https://www.python.org/) + [Python Language Server](https://github.com/python-lsp/python-lsp-server)
 - [ghcr.io/metio/dev-containers/r](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fr): [R](https://www.r-project.org/) + [R Language Server](https://github.com/REditorSupport/languageserver)
+- [ghcr.io/metio/dev-containers/ruby](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fruby): [Ruby](https://www.ruby-lang.org/) + [Ruby Language Server](https://github.com/castwide/solargraph)
 
 ## License
 

@@ -3,4 +3,5 @@
 
 FROM docker.io/library/ruby:latest
 
+RUN gem install solargraph
 # TODO: install https://github.com/castwide/solargraph
