@@ -3,4 +3,5 @@
 
 FROM docker.io/library/perl:latest
 
-# TODO: install https://github.com/FractalBoy/perl-language-server
+RUN cpanm PLS
+
