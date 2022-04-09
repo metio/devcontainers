@@ -4,12 +4,12 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/prolog.yml
-      - languages/prolog/latest/**
+      - .github/workflows/python.yml
+      - languages/python/latest/**
   schedule:
     - cron:  15 3 * * MON
 env:
-  LANGUAGE: prolog
+  LANGUAGE: python
   VERSION: latest
 jobs:
   publish:
