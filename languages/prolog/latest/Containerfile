@@ -3,4 +3,4 @@
 
 FROM docker.io/library/swipl:latest
 
-# TODO: install https://github.com/jamesnvc/lsp_server
+RUN swipl -t 'pack_install(lsp_server, [interactive(false)]).'
