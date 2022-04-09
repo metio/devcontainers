@@ -1,7 +1,8 @@
 # dev-containers
 
 This repository contains OCI base images that can be used to develop with a
-specific programming language and its language server.
+specific programming language and its language server. All images are signed
+with [cosign](https://github.com/sigstore/cosign).
 
 ## Available Images
 
