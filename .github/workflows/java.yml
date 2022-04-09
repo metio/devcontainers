@@ -44,6 +44,8 @@ jobs:
           file: ./languages/${{ env.LANGUAGE }}/${{ env.VERSION }}/Containerfile
           push: true
           tags: ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       - id: sign
         name: Sign Image
         run: cosign sign ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
