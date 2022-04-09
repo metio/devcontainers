@@ -1,6 +1,0 @@
-# Image for Deno development
-# Based on the official image available at https://hub.docker.com/r/denoland/deno
-
-FROM docker.io/denoland/deno:latest
-
-# TODO: install typescript-language-server
