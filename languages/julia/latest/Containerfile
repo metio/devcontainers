@@ -4,5 +4,3 @@
 FROM docker.io/library/julia:latest
 
 RUN julia --eval 'using Pkg; Pkg.add("LanguageServer")'
-
-# TODO: install https://github.com/julia-vscode/LanguageServer.jl
