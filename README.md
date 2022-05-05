@@ -29,6 +29,12 @@ language server. All images are signed with [cosign](https://github.com/sigstore
 
 - `latest`: Follows `docker.io/library/haskell:latest`, installs latest ghcup and uses that to install latest hls.
 
+### [`ghcr.io/metio/dev-containers/java`](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fjava)
+
+[Java](https://www.java.com/) + [GraalVM](https://www.graalvm.org/) + [JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls). Available tags:
+
+- `latest-graalvm`: Follows `docker.io/library/maven:3-openjdk-17` and installs latest Graal + JDTLS.
+
 ### [`ghcr.io/metio/dev-containers/julia`](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fjulia)
 
 [Julia](https://julialang.org/) + [Julia Language Server](https://github.com/julia-vscode/LanguageServer.jl). Available tags:
