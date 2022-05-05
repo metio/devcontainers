@@ -31,8 +31,9 @@ language server. All images are signed with [cosign](https://github.com/sigstore
 
 ### [`ghcr.io/metio/dev-containers/java`](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fjava)
 
-[Java](https://www.java.com/) + [GraalVM](https://www.graalvm.org/) + [JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls). Available tags:
+[Java](https://www.java.com/) + [JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls) + [GraalVM](https://www.graalvm.org/) (optional). Available tags:
 
+- `latest`: Follows `docker.io/library/maven:3-openjdk-17` and installs latest JDTLS.
 - `latest-graalvm`: Follows `docker.io/library/maven:3-openjdk-17` and installs latest Graal + JDTLS.
 
 ### [`ghcr.io/metio/dev-containers/julia`](https://github.com/orgs/metio/packages/container/package/dev-containers%2Fjulia)

@@ -1,16 +1,16 @@
-name: Java (latest)
+name: Java (latest-graalvm)
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/java.yml
-      - languages/java/latest/**
+      - .github/workflows/java-graalvm.yml
+      - languages/java/latest-graalvm/**
   schedule:
     - cron:  15 3 * * MON
 env:
   LANGUAGE: java
-  VERSION: latest
+  VERSION: latest-graalvm
 jobs:
   publish:
     runs-on: ubuntu-latest
