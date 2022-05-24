@@ -8,6 +8,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     wget https://github.com/elbywan/crystalline/releases/latest/download/crystalline_x86_64-unknown-linux-gnu.gz -O crystalline.gz && \
     gzip -d crystalline.gz && \
-    chmod u+x crystalline && \
     mv crystalline /usr/local/bin/crystalline && \
+    chmod u+x /usr/local/bin/crystalline && \
     apt-get purge --assume-yes --auto-remove wget

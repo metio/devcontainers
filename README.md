@@ -109,6 +109,12 @@ language server. All images are signed with [cosign](https://github.com/sigstore
 
 - `latest`: Follows `docker.io/library/ruby:latest` and installs latest released solargraph.
 
+### [`ghcr.io/metio/devcontainers/terraform`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Fterraform)
+
+[Terraform](https://terraform.io/) + [Terraform Language Server](https://github.com/hashicorp/terraform-ls). Available tags:
+
+- `latest`: Follows `docker.io/hashicorp/terraform:latest` and installs latest released terraform-ls.
+
 ## License
 
 ```
