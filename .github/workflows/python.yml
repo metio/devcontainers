@@ -19,7 +19,7 @@ jobs:
       id-token: write
     strategy:
       matrix:
-        version: [3.7, 3.8, 3.9, 3.10, latest]
+        version: ["3.7", "3.8", "3.9", "3.10", "latest"]
     steps:
       - id: checkout
         name: Checkout Code
