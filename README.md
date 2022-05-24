@@ -22,7 +22,13 @@ language server. All images are signed with [cosign](https://github.com/sigstore
 [Go](https://golang.org/) + [Go Language Server](https://github.com/golang/tools/tree/master/gopls). Available tags:
 
 - `latest`: Follows `docker.io/library/golang:latest` and installs latest golang.org/x/tools/gopls.
- 
+
+### [`ghcr.io/metio/devcontainers/java`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Fjava)
+
+[GraalVM](https://www.graalvm.org/) + [JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls). Available tags:
+
+- `latest`: Follows `docker.io/library/maven:latest` and installs latest Graal + JDTLS.
+
 ### [`ghcr.io/metio/devcontainers/haskell`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Fhaskell)
 
 [Haskell](https://www.haskell.org/) + [Haskell Language Server](https://github.com/haskell/haskell-language-server). Available tags:
@@ -31,10 +37,12 @@ language server. All images are signed with [cosign](https://github.com/sigstore
 
 ### [`ghcr.io/metio/devcontainers/java`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Fjava)
 
-[Java](https://www.java.com/) + [JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls) + [GraalVM](https://www.graalvm.org/) (optional). Available tags:
+[Java](https://www.java.com/) + [JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls). Available tags:
 
-- `latest`: Follows `docker.io/library/maven:3-openjdk-17` and installs latest JDTLS.
-- `latest-graalvm`: Follows `docker.io/library/maven:3-openjdk-17` and installs latest Graal + JDTLS.
+- `latest`: Follows `docker.io/library/maven:latest` and installs latest JDTLS.
+- `17`: Follows `docker.io/library/maven:3-eclipse-temurin-17` and installs latest JDTLS.
+- `11`: Follows `docker.io/library/maven:3-eclipse-temurin-11` and installs latest JDTLS.
+- `8`: Follows `docker.io/library/maven:3-eclipse-temurin-8` and installs latest JDTLS.
 
 ### [`ghcr.io/metio/devcontainers/julia`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Fjulia)
 

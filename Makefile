@@ -112,6 +112,24 @@ java: ## Build image for Java development
 .PHONY: java-lint
 java-lint: ## Lint image for Java development
 	$(call hadolint,java,latest)
+.PHONY: java-8
+java-8: ## Build image for Java development
+	$(call build-image,java,8)
+.PHONY: java-8-lint
+java-8-lint: ## Lint image for Java development
+	$(call hadolint,java,8)
+.PHONY: java-11
+java-11: ## Build image for Java development
+	$(call build-image,java,11)
+.PHONY: java-11-lint
+java-11-lint: ## Lint image for Java development
+	$(call hadolint,java,11)
+.PHONY: java-17
+java-17: ## Build image for Java development
+	$(call build-image,java,17)
+.PHONY: java-17-lint
+java-17-lint: ## Lint image for Java development
+	$(call hadolint,java,17)
 
 .PHONY: java-graalvm
 java-graalvm: ## Build image for Java development with GraalVM

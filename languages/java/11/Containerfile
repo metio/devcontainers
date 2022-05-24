@@ -1,7 +1,7 @@
 # Image for Java development with Maven
 # Based on the official image available at https://hub.docker.com/_/maven
 
-FROM docker.io/library/maven:latest
+FROM docker.io/library/maven:3-eclipse-temurin-11
 
 # Install Java language server
 ENV JDTLS_VERSION=1.10.0

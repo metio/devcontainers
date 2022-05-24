@@ -1,16 +1,16 @@
-name: Java (latest-graalvm)
+name: GraalVM
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/java-graalvm.yml
-      - languages/java/latest-graalvm/**
+      - .github/workflows/graalvm.yml
+      - languages/graalvm/**
   schedule:
     - cron:  15 3 * * MON
 env:
-  LANGUAGE: java
-  VERSION: latest-graalvm
+  LANGUAGE: graalvm
+  VERSION: latest
 jobs:
   publish:
     runs-on: ubuntu-latest

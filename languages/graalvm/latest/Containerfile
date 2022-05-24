@@ -1,7 +1,7 @@
 # Image for Java development with GraalVM and Maven
 # Based on the official image available at https://hub.docker.com/_/maven
 
-FROM docker.io/library/maven:3-openjdk-17
+FROM docker.io/library/maven:latest
 
 RUN microdnf install gcc zlib-devel
 
