@@ -177,6 +177,18 @@ nodejs: ## Build image for NodeJS development
 .PHONY: nodejs-lint
 nodejs-lint: ## Lint image for NodeJS development
 	$(call hadolint,nodejs,latest)
+.PHONY: nodejs-18
+nodejs-18: ## Build image for NodeJS development
+	$(call build-image,nodejs,18)
+.PHONY: nodejs-18-lint
+nodejs-18-lint: ## Lint image for NodeJS development
+	$(call hadolint,nodejs,18)
+.PHONY: nodejs-16
+nodejs-16: ## Build image for NodeJS development
+	$(call build-image,nodejs,16)
+.PHONY: nodejs-16-lint
+nodejs-16-lint: ## Lint image for NodeJS development
+	$(call hadolint,nodejs,16)
 
 .PHONY: perl
 perl: ## Build image for Perl development
