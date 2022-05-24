@@ -217,6 +217,30 @@ python: ## Build image for Python development
 .PHONY: python-lint
 python-lint: ## Lint image for Python development
 	$(call hadolint,python,latest)
+.PHONY: python-37
+python-37: ## Build image for Python development
+	$(call build-image,python,3.7)
+.PHONY: python-37-lint
+python-37-lint: ## Lint image for Python development
+	$(call hadolint,python,3.7)
+.PHONY: python-38
+python-38: ## Build image for Python development
+	$(call build-image,python,3.8)
+.PHONY: python-38-lint
+python-38-lint: ## Lint image for Python development
+	$(call hadolint,python,3.8)
+.PHONY: python-39
+python-39: ## Build image for Python development
+	$(call build-image,python,3.9)
+.PHONY: python-39-lint
+python-39-lint: ## Lint image for Python development
+	$(call hadolint,python,3.9)
+.PHONY: python-310
+python-310: ## Build image for Python development
+	$(call build-image,python,3.10)
+.PHONY: python-310-lint
+python-310-lint: ## Lint image for Python development
+	$(call hadolint,python,3.10)
 
 .PHONY: r
 r: ## Build image for R development
