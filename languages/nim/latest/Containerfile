@@ -3,5 +3,6 @@
 
 FROM docker.io/nimlang/nim:latest
 
+# TODO: requires https://github.com/nim-lang/Nim/issues/19604
 RUN nimble refresh
 RUN nimble install -y nimlsp
