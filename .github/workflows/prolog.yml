@@ -46,7 +46,7 @@ jobs:
           context: ./languages/${{ env.LANGUAGE }}/${{ env.VERSION }}/
           file: ./languages/${{ env.LANGUAGE }}/${{ env.VERSION }}/Containerfile
           push: true
-          tags: ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
+          tags: ghcr.io/metio/devcontainers/${{ env.LANGUAGE }}:${{ env.VERSION }}
           labels: |
             org.opencontainers.image.title=${{ env.LANGUAGE }}
             org.opencontainers.image.description=Image for ${{ env.LANGUAGE }} development
@@ -62,6 +62,6 @@ jobs:
           cache-to: type=gha,mode=max
       - id: sign
         name: Sign Image
-        run: cosign sign ghcr.io/metio/dev-containers/${{ env.LANGUAGE }}:${{ env.VERSION }}
+        run: cosign sign ghcr.io/metio/devcontainers/${{ env.LANGUAGE }}:${{ env.VERSION }}
         env:
           COSIGN_EXPERIMENTAL: "true"

@@ -3,7 +3,7 @@ SHELL = /bin/sh
 
 container_tool ?= podman
 hadolint_version ?= latest
-upstream ?= https://github.com/metio/dev-containers
+upstream ?= https://github.com/metio/devcontainers
 repository ?= metio
 
 build-image = $(container_tool) build \
