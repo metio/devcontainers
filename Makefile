@@ -98,6 +98,24 @@ haskell: ## Build image for Haskell development
 .PHONY: haskell-lint
 haskell-lint: ## Lint image for Haskell development
 	$(call hadolint,haskell,latest)
+.PHONY: haskell-810
+haskell-810: ## Build image for Haskell development
+	$(call build-image,haskell,8.10)
+.PHONY: haskell-810-lint
+haskell-810-lint: ## Lint image for Haskell development
+	$(call hadolint,haskell,8.10)
+.PHONY: haskell-90
+haskell-90: ## Build image for Haskell development
+	$(call build-image,haskell,9.0)
+.PHONY: haskell-90-lint
+haskell-90-lint: ## Lint image for Haskell development
+	$(call hadolint,haskell,9.0)
+.PHONY: haskell-92
+haskell-92: ## Build image for Haskell development
+	$(call build-image,haskell,9.2)
+.PHONY: haskell-92-lint
+haskell-92-lint: ## Lint image for Haskell development
+	$(call hadolint,haskell,9.2)
 
 .PHONY: haxe
 haxe: ## Build image for Haxe development

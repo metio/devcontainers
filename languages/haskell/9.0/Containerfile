@@ -1,0 +1,9 @@
+# Image for Haskell development
+# Based on the official image available at https://hub.docker.com/_/haskell
+
+FROM docker.io/library/haskell:9.0
+
+RUN curl -O https://downloads.haskell.org/~ghcup/x86_64-linux-ghcup && \
+    mv x86_64-linux-ghcup /usr/local/bin/ghcup && \
+    chmod +x /usr/local/bin/ghcup && \
+    ghcup install hls
