@@ -23,7 +23,7 @@ language server. All images are signed with [cosign](https://github.com/sigstore
 
 - `latest`: Follows `docker.io/library/golang:latest` and installs latest golang.org/x/tools/gopls.
 
-### [`ghcr.io/metio/devcontainers/java`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Fjava)
+### [`ghcr.io/metio/devcontainers/graalvm`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Fgraalvm)
 
 [GraalVM](https://www.graalvm.org/) + [JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls). Available tags:
 
