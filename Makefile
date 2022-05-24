@@ -131,12 +131,24 @@ java-17: ## Build image for Java development
 java-17-lint: ## Lint image for Java development
 	$(call hadolint,java,17)
 
-.PHONY: java-graalvm
-java-graalvm: ## Build image for Java development with GraalVM
-	$(call build-image,java,latest-graalvm)
-.PHONY: java-graalvm-lint
-java-graalvm-lint: ## Lint image for Java development with GraalVM
-	$(call hadolint,java,latest-graalvm)
+.PHONY: graalvm
+graalvm: ## Build image for Java development with GraalVM
+	$(call build-image,graalvm,latest)
+.PHONY: graalvm-lint
+graalvm-lint: ## Lint image for Java development with GraalVM
+	$(call hadolint,graalvm,latest)
+.PHONY: graalvm-17
+graalvm-17: ## Build image for Java development with GraalVM
+	$(call build-image,graalvm,17)
+.PHONY: graalvm-17-lint
+graalvm-17-lint: ## Lint image for Java development with GraalVM
+	$(call hadolint,graalvm,17)
+.PHONY: graalvm-11
+graalvm-11: ## Build image for Java development with GraalVM
+	$(call build-image,graalvm,11)
+.PHONY: graalvm-11-lint
+graalvm-11-lint: ## Lint image for Java development with GraalVM
+	$(call hadolint,graalvm,11)
 
 .PHONY: julia
 julia: ## Build image for Julia development

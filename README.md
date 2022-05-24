@@ -27,7 +27,9 @@ language server. All images are signed with [cosign](https://github.com/sigstore
 
 [GraalVM](https://www.graalvm.org/) + [JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls). Available tags:
 
-- `latest`: Follows `docker.io/library/maven:latest` and installs latest Graal + JDTLS.
+- `latest`: Follows `docker.io/library/maven:3-eclipse-temurin-17` and installs latest Graal + JDTLS.
+- `17`: Follows `docker.io/library/maven:3-eclipse-temurin-17` and installs latest Graal + JDTLS.
+- `11`: Follows `docker.io/library/maven:3-eclipse-temurin-11` and installs latest Graal + JDTLS.
 
 ### [`ghcr.io/metio/devcontainers/haskell`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Fhaskell)
 

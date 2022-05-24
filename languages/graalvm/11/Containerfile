@@ -1,10 +1,10 @@
 # Image for Java development with GraalVM and Maven
 # Based on the official image available at https://hub.docker.com/_/maven
 
-FROM docker.io/library/maven:3-eclipse-temurin-17
+FROM docker.io/library/maven:3-eclipse-temurin-11
 
 # Install GraalVM
-ENV JAVA_VERSION=17
+ENV JAVA_VERSION=11
 ENV GRAALVM_VERSION=22.1.0
 RUN curl -L https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAALVM_VERSION}/graalvm-ce-java${JAVA_VERSION}-linux-amd64-${GRAALVM_VERSION}.tar.gz > graalvm.tar.gz && \
   tar --extract --gzip --file graalvm.tar.gz --directory / && \
