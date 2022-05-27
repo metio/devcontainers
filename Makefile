@@ -174,6 +174,18 @@ julia: ## Build image for Julia development
 .PHONY: julia-lint
 julia-lint: ## Lint image for Julia development
 	$(call hadolint,julia,latest)
+.PHONY: julia-16
+julia-16: ## Build image for Julia development
+	$(call build-image,julia,1.6)
+.PHONY: julia-16-lint
+julia-16-lint: ## Lint image for Julia development
+	$(call hadolint,julia,1.6)
+.PHONY: julia-17
+julia-17: ## Build image for Julia development
+	$(call build-image,julia,1.7)
+.PHONY: julia-17-lint
+julia-17-lint: ## Lint image for Julia development
+	$(call hadolint,julia,1.7)
 
 .PHONY: nim
 nim: ## Build image for Nim development

@@ -54,6 +54,8 @@ language server. All images are signed with [cosign](https://github.com/sigstore
 [Julia](https://julialang.org/) + [Julia Language Server](https://github.com/julia-vscode/LanguageServer.jl). Available tags:
 
 - `latest`: Follows `docker.io/library/julia:latest` and installs latest LanguageServer.
+- `1.7`: Follows `docker.io/library/julia:1.7` and installs latest LanguageServer.
+- `1.6`: Follows `docker.io/library/julia:1.6` and installs latest LanguageServer.
 
 ### [`ghcr.io/metio/devcontainers/nim`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Fnim)
 
