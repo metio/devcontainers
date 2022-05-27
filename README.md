@@ -26,6 +26,16 @@ language server. All images are signed with [cosign](https://github.com/sigstore
 - `1.11`: Follows `docker.io/library/elixir:1.11` and installs latest elixir-ls for Elixir 1.11.
 - `1.10`: Follows `docker.io/library/elixir:1.10` and installs latest elixir-ls for Elixir 1.10.
 
+### [`ghcr.io/metio/devcontainers/erlang`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Ferlang)
+
+[Erlang](https://www.erlang.org/) + [Erlang Language Server](https://erlang-ls.github.io/). Available tags:
+
+- `latest`: Follows `docker.io/library/erlang:latest` and installs latest erlang-ls.
+- `25`: Follows `docker.io/library/erlang:25` and installs latest erlang-ls.
+- `24`: Follows `docker.io/library/erlang:24` and installs latest erlang-ls.
+- `23`: Follows `docker.io/library/erlang:23` and installs latest erlang-ls.
+- `22`: Follows `docker.io/library/erlang:22` and installs latest erlang-ls.
+
 ### [`ghcr.io/metio/devcontainers/go`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Fgo)
 
 [Go](https://golang.org/) + [Go Language Server](https://github.com/golang/tools/tree/master/gopls). Available tags:

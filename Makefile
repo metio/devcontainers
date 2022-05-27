@@ -102,6 +102,30 @@ erlang: ## Build image for Erlang development
 .PHONY: erlang-lint
 erlang-lint: ## Lint image for Erlang development
 	$(call hadolint,erlang,latest)
+.PHONY: erlang-25
+erlang-25: ## Build image for Erlang development
+	$(call build-image,erlang,25)
+.PHONY: erlang-25-lint
+erlang-25-lint: ## Lint image for Erlang development
+	$(call hadolint,erlang,25)
+.PHONY: erlang-24
+erlang-24: ## Build image for Erlang development
+	$(call build-image,erlang,24)
+.PHONY: erlang-24-lint
+erlang-24-lint: ## Lint image for Erlang development
+	$(call hadolint,erlang,24)
+.PHONY: erlang-23
+erlang-23: ## Build image for Erlang development
+	$(call build-image,erlang,23)
+.PHONY: erlang-23-lint
+erlang-23-lint: ## Lint image for Erlang development
+	$(call hadolint,erlang,23)
+.PHONY: erlang-22
+erlang-22: ## Build image for Erlang development
+	$(call build-image,erlang,22)
+.PHONY: erlang-22-lint
+erlang-22-lint: ## Lint image for Erlang development
+	$(call hadolint,erlang,22)
 
 .PHONY: go
 go: ## Build image for Go development
