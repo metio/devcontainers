@@ -17,6 +17,15 @@ language server. All images are signed with [cosign](https://github.com/sigstore
 
 - `latest`: Follows `docker.io/crystallang/crystal:latest` and installs latest released version of crystalline.
 
+### [`ghcr.io/metio/devcontainers/elixir`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Felixir)
+
+[Elixir](https://elixir-lang.org/) + [Elixir Language Server](https://github.com/elixir-lsp/elixir-ls). Available tags:
+
+- `latest`: Follows `docker.io/library/elixir:latest` and installs latest elixir-ls.
+- `1.12`: Follows `docker.io/library/elixir:1.12` and installs latest elixir-ls for Elixir 1.12.
+- `1.11`: Follows `docker.io/library/elixir:1.11` and installs latest elixir-ls for Elixir 1.11.
+- `1.10`: Follows `docker.io/library/elixir:1.10` and installs latest elixir-ls for Elixir 1.10.
+
 ### [`ghcr.io/metio/devcontainers/go`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Fgo)
 
 [Go](https://golang.org/) + [Go Language Server](https://github.com/golang/tools/tree/master/gopls). Available tags:

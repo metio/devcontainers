@@ -77,6 +77,24 @@ elixir: ## Build image for Elixir development
 .PHONY: elixir-lint
 elixir-lint: ## Lint image for Elixir development
 	$(call hadolint,elixir,latest)
+.PHONY: elixir-110
+elixir-110: ## Build image for Elixir development
+	$(call build-image,elixir,1.10)
+.PHONY: elixir-110-lint
+elixir-110-lint: ## Lint image for Elixir development
+	$(call hadolint,elixir,1.10)
+.PHONY: elixir-111
+elixir-111: ## Build image for Elixir development
+	$(call build-image,elixir,1.11)
+.PHONY: elixir-111-lint
+elixir-111-lint: ## Lint image for Elixir development
+	$(call hadolint,elixir,1.11)
+.PHONY: elixir-112
+elixir-112: ## Build image for Elixir development
+	$(call build-image,elixir,1.12)
+.PHONY: elixir-112-lint
+elixir-112-lint: ## Lint image for Elixir development
+	$(call hadolint,elixir,1.12)
 
 .PHONY: erlang
 erlang: ## Build image for Erlang development

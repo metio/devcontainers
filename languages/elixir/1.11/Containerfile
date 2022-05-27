@@ -1,9 +1,10 @@
 # Image for Elixir development
 # Based on the official image available at https://hub.docker.com/_/elixir
 
-FROM docker.io/library/elixir:latest
+FROM docker.io/library/elixir:1.11
 
+ENV ELIXIR_VERSION=1.11
 ENV ELIXIR_LS_VERSION=0.9.0
-RUN wget https://github.com/elixir-lsp/elixir-ls/releases/download/v${ELIXIR_LS_VERSION}/elixir-ls.zip -O elixir-ls.zip && \
+RUN wget https://github.com/elixir-lsp/elixir-ls/releases/download/v${ELIXIR_LS_VERSION}/elixir-ls-${ELIXIR_VERSION}.zip -O elixir-ls.zip && \
     mkdir --parents /opt/elixir/ls && \
     unzip elixir-ls.zip -d /opt/elixir/ls
