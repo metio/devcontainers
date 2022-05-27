@@ -1,0 +1,6 @@
+# Image for Prolog development
+# Based on the official image available at https://hub.docker.com/_/swipl
+
+FROM docker.io/library/swipl:stable
+
+RUN swipl -t 'pack_install(lsp_server, [interactive(false)]).'

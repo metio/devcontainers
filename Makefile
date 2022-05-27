@@ -240,6 +240,12 @@ prolog: ## Build image for Prolog development
 .PHONY: prolog-lint
 prolog-lint: ## Lint image for Prolog development
 	$(call hadolint,prolog,latest)
+.PHONY: prolog-stable
+prolog-stable: ## Build image for Prolog development
+	$(call build-image,prolog,stable)
+.PHONY: prolo-stable-lint
+prolog-stable-lint: ## Lint image for Prolog development
+	$(call hadolint,prolog,stable)
 
 .PHONY: python
 python: ## Build image for Python development

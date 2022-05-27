@@ -88,6 +88,7 @@ language server. All images are signed with [cosign](https://github.com/sigstore
 [SWI Prolog](https://www.swi-prolog.org/) + [Prolog Language Server](https://github.com/jamesnvc/lsp_server). Available tags:
 
 - `latest`: Follows `docker.io/library/swipl:latest` and installs latest lsp_server.
+- `stable`: Follows `docker.io/library/swipl:stable` and installs latest lsp_server.
 
 ### [`ghcr.io/metio/devcontainers/python`](https://github.com/orgs/metio/packages/container/package/devcontainers%2Fpython)
 
