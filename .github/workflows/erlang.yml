@@ -27,6 +27,9 @@ jobs:
       - id: cosign
         name: Install Cosign
         uses: sigstore/cosign-installer@main
+      - id: syft
+        name: Install Syft
+        uses: anchore/sbom-action/download-syft@v0.11.0
       - id: buildx
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -67,3 +70,10 @@ jobs:
         run: cosign sign ghcr.io/metio/devcontainers/${{ env.LANGUAGE }}:${{ matrix.version }}
         env:
           COSIGN_EXPERIMENTAL: "true"
+      - id: sbom
+        name: Attach SBOM
+        env:
+          COSIGN_EXPERIMENTAL: "true"
+        run: |
+          syft ghcr.io/metio/devcontainers/${{ env.LANGUAGE }}:${{ matrix.version }} -o spdx-json=sbom-spdx.json
+          cosign attest --predicate sbom-spdx.json --type spdx ghcr.io/metio/devcontainers/${{ env.LANGUAGE }}:${{ matrix.version }}

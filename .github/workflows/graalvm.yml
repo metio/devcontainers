@@ -77,4 +77,3 @@ jobs:
         run: |
           syft ghcr.io/metio/devcontainers/${{ env.LANGUAGE }}:${{ matrix.version }} -o spdx-json=sbom-spdx.json
           cosign attest --predicate sbom-spdx.json --type spdx ghcr.io/metio/devcontainers/${{ env.LANGUAGE }}:${{ matrix.version }}
-          echo "::notice title=Verify SBOM attestation::COSIGN_EXPERIMENTAL=1 cosign verify-attestation ghcr.io/metio/devcontainers/${{ env.LANGUAGE }}:${{ matrix.version }} | jq '.payload |= @base64d | .payload | fromjson | select(.predicateType == \"https://spdx.dev/Document\") | .predicate.Data | fromjson'"
