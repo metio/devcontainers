@@ -73,5 +73,5 @@ jobs:
         env:
           COSIGN_EXPERIMENTAL: "true"
         run: |
-          syft ghcr.io/metio/devcontainers/${{ env.LANGUAGE }}:${{ env.LANGUAGE }} -o spdx-json=sbom-spdx.json
-          cosign attest --predicate sbom-spdx.json --type spdx ghcr.io/metio/devcontainers/${{ env.LANGUAGE }}:${{ env.LANGUAGE }}
+          syft ghcr.io/metio/devcontainers/${{ env.LANGUAGE }}:${{ env.VERSION }} -o spdx-json=sbom-spdx.json
+          cosign attest --predicate sbom-spdx.json --type spdx ghcr.io/metio/devcontainers/${{ env.LANGUAGE }}:${{ env.VERSION }}
