@@ -7,7 +7,7 @@ on:
       - .github/workflows/graalvm.yml
       - languages/graalvm/**
   schedule:
-    - cron:  15 3 * * MON
+    - cron:  15 4 * * MON
 env:
   LANGUAGE: graalvm
   REPOSITORY: metio/devcontainers

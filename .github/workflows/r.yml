@@ -7,7 +7,7 @@ on:
       - .github/workflows/r.yml
       - languages/r/**
   schedule:
-    - cron:  15 3 * * MON
+    - cron:  15 6 * * MON
 env:
   LANGUAGE: r
   REPOSITORY: metio/devcontainers

@@ -7,7 +7,7 @@ on:
       - .github/workflows/nix.yml
       - languages/nix/**
   schedule:
-    - cron:  15 3 * * MON
+    - cron:  15 5 * * MON
 env:
   LANGUAGE: nix
   REPOSITORY: metio/devcontainers

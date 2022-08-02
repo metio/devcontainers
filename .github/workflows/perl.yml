@@ -7,7 +7,7 @@ on:
       - .github/workflows/perl.yml
       - languages/perl/**
   schedule:
-    - cron:  15 3 * * MON
+    - cron:  35 5 * * MON
 env:
   LANGUAGE: perl
   REPOSITORY: metio/devcontainers

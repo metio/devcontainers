@@ -7,7 +7,7 @@ on:
       - .github/workflows/prolog.yml
       - languages/prolog/**
   schedule:
-    - cron:  15 3 * * MON
+    - cron:  45 5 * * MON
 env:
   LANGUAGE: prolog
   REPOSITORY: metio/devcontainers

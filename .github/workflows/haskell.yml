@@ -7,7 +7,7 @@ on:
       - .github/workflows/haskell.yml
       - languages/haskell/**
   schedule:
-    - cron:  15 3 * * MON
+    - cron:  25 4 * * MON
 env:
   LANGUAGE: haskell
   REPOSITORY: metio/devcontainers

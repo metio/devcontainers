@@ -7,7 +7,7 @@ on:
       - .github/workflows/python.yml
       - languages/python/**
   schedule:
-    - cron:  15 3 * * MON
+    - cron:  55 5 * * MON
 env:
   LANGUAGE: python
   REPOSITORY: metio/devcontainers

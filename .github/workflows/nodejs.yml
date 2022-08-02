@@ -7,7 +7,7 @@ on:
       - .github/workflows/nodejs.yml
       - languages/nodejs/**
   schedule:
-    - cron:  15 3 * * MON
+    - cron:  25 5 * * MON
 env:
   LANGUAGE: nodejs
   REPOSITORY: metio/devcontainers

@@ -7,7 +7,7 @@ on:
       - .github/workflows/python.yml
       - languages/elixir/**
   schedule:
-    - cron:  15 3 * * MON
+    - cron:  35 3 * * MON
 env:
   LANGUAGE: elixir
   REPOSITORY: metio/devcontainers

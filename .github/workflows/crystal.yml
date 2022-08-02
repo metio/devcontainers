@@ -7,7 +7,7 @@ on:
       - .github/workflows/crystal.yml
       - languages/crystal/**
   schedule:
-    - cron:  15 3 * * MON
+    - cron:  25 3 * * MON
 env:
   LANGUAGE: crystal
   REPOSITORY: metio/devcontainers

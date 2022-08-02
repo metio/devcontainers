@@ -7,7 +7,7 @@ on:
       - .github/workflows/ruby.yml
       - languages/terraform/**
   schedule:
-    - cron:  15 3 * * MON
+    - cron:  35 6 * * MON
 env:
   LANGUAGE: terraform
   REPOSITORY: metio/devcontainers
