@@ -1,11 +1,11 @@
-name: Go (latest)
+name: Go
 on:
   push:
     branches:
       - main
     paths:
       - .github/workflows/go.yml
-      - languages/go/latest/**
+      - languages/go/**
   schedule:
     - cron:  15 3 * * MON
 env:

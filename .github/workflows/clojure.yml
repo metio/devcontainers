@@ -1,11 +1,11 @@
-name: Clojure (latest)
+name: Clojure
 on:
   push:
     branches:
       - main
     paths:
       - .github/workflows/clojure.yml
-      - languages/clojure/latest/**
+      - languages/clojure/**
   schedule:
     - cron:  15 3 * * MON
 env:

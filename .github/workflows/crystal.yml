@@ -1,11 +1,11 @@
-name: Crystal (latest)
+name: Crystal
 on:
   push:
     branches:
       - main
     paths:
       - .github/workflows/crystal.yml
-      - languages/crystal/latest/**
+      - languages/crystal/**
   schedule:
     - cron:  15 3 * * MON
 env:
