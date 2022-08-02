@@ -4,6 +4,6 @@
 are signed with [cosign](https://github.com/sigstore/cosign) and their SBOMs generated with
 [syft](https://github.com/anchore/syft).
 
-## Available Images
+## Available Tags
 
 - `latest`: Follows `docker.io/library/clojure:latest` and installs clojure-lsp master.
