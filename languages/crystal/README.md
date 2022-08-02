@@ -6,6 +6,4 @@ signed with [cosign](https://github.com/sigstore/cosign) and their SBOMs generat
 
 ## Available Tags
 
-. Available tags:
-
 - `latest`: Follows `docker.io/crystallang/crystal:latest` and installs latest released version of Crystalline.
