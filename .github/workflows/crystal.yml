@@ -83,4 +83,5 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: ${{ env.REPOSITORY }}-${{ env.LANGUAGE }}
-          readme-filepath: ./crystal/README.md
+          short-description: Devcontainer for Crystal with Crystalline
+          readme-filepath: ./languages/crystal/README.md
