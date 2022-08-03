@@ -7,3 +7,4 @@ signed with [cosign](https://github.com/sigstore/cosign) and their SBOMs generat
 ## Available Tags
 
 - `latest`: Follows `docker.io/library/golang:latest` and installs latest golang.org/x/tools/gopls.
+- `1.18`: Follows `docker.io/library/golang:1.18` and installs latest golang.org/x/tools/gopls.
