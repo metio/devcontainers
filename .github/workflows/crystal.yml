@@ -89,7 +89,7 @@ jobs:
       - id: scan
         uses: anchore/scan-action@v3
         with:
-          sbom: sbom-spdx.json
+          image: docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
           acs-report-enable: true
           fail-build: false
       - id: sarif
