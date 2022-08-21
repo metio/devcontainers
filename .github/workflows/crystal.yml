@@ -15,7 +15,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       id-token: write
       security-events: write
     strategy:
@@ -28,9 +28,6 @@ jobs:
       - id: cosign
         name: Install Cosign
         uses: sigstore/cosign-installer@main
-      - id: syft
-        name: Install Syft
-        uses: anchore/sbom-action/download-syft@v0.12.0
       - id: buildx
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -71,12 +68,30 @@ jobs:
         env:
           COSIGN_EXPERIMENTAL: "true"
       - id: sbom
-        name: Attach SBOM
+        name: Generate SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          image: docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
+          artifact-name: sbom-spdx.json
+          dependency-snapshot: true
+      - id: sbom-attest
+        name: Attest SBOM
+        run: cosign attest --predicate sbom-spdx.json --type spdx docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
         env:
           COSIGN_EXPERIMENTAL: "true"
-        run: |
-          syft docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }} -o spdx-json=sbom-spdx.json
-          cosign attest --predicate sbom-spdx.json --type spdx docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
+      - id: scan
+        name: Scan SBOM
+        uses: anchore/scan-action@v3
+        with:
+          image: sbom-spdx.json
+          acs-report-enable: true
+          fail-build: false
+      - id: sarif
+        name: Upload SARIF Report
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarif }}
+          category: ${{ env.LANGUAGE }}-${{ matrix.version }}
       - id: documentation
         name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
@@ -86,15 +101,3 @@ jobs:
           repository: ${{ env.REPOSITORY }}-${{ env.LANGUAGE }}
           short-description: Devcontainer for Crystal with Crystalline
           readme-filepath: ./languages/${{ env.LANGUAGE }}/README.md
-      - id: scan
-        uses: anchore/scan-action@v3
-        with:
-          image: docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
-          acs-report-enable: true
-          fail-build: false
-      - id: sarif
-        name: upload Anchore scan SARIF report
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: ${{ steps.scan.outputs.sarif }}
-          category: ${{ env.LANGUAGE }}-${{ matrix.version }}
