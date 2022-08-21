@@ -1,10 +1,12 @@
 # Image for Clojure development
 # Based on the official image available at https://hub.docker.com/_/clojure
 
+# hadolint ignore=DL3007
 FROM docker.io/library/clojure:latest
 
+# hadolint ignore=DL3008
 RUN apt-get update && \
-    apt-get install --assume-yes curl unzip && \
+    apt-get install --assume-yes --no-install-recommends curl unzip && \
     rm -rf /var/lib/apt/lists/* && \
     curl https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install --output install-clojure-lsp.sh && \
     chmod +x ./install-clojure-lsp.sh && \
