@@ -87,31 +87,26 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
       - id: grype-scan
         name: Scan SBOM with Grype
-        run: grype -o sarif --only-fixed sbom:sbom-spdx.json > grype-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif
+        run: grype -o sarif --only-fixed sbom:sbom-spdx.json > grype.sarif
       - id: hadolint-scan
         name: Scan Containerfile with Hadolint
         uses: hadolint/hadolint-action@v2.1.0
         with:
           dockerfile: ./languages/${{ env.LANGUAGE }}/${{ matrix.version }}/Containerfile
           format: sarif
-          output-file: hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif
+          output-file: hadolint.sarif
           no-fail: true
-      - id: fix-sarif
-        name: Fix SARIF Reports
-        run: |
-          jq '.runs[].automationDetails.id |= "grype-${{ env.LANGUAGE }}-${{ matrix.version }}"' grype-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif > grype-fixed.sarif
-          jq '.runs[].automationDetails.id |= "hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}"' hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif > hadolint-fixed.sarif
       - id: grype-upload
         name: Upload Grype SARIF Report
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: grype-fixed.sarif
+          sarif_file: grype.sarif
           category: grype-${{ env.LANGUAGE }}-${{ matrix.version }}
       - id: hadolint-upload
         name: Upload Hadolint SARIF Report
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: hadolint-fixed.sarif
+          sarif_file: hadolint.sarif
           category: hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}
       - id: documentation
         name: Docker Hub Description
