@@ -87,7 +87,7 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
       - id: grype-scan
         name: Scan SBOM with Grype
-        run: grype -o sarif --only-fixed sbom:crystal-latest-sbom.spdx.json > grype-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif
+        run: grype -o sarif --only-fixed sbom:sbom-spdx.json > grype-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif
       - id: hadolint-scan
         name: Scan Containerfile with Hadolint
         uses: hadolint/hadolint-action@v2.1.0
