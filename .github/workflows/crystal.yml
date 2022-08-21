@@ -85,7 +85,7 @@ jobs:
         name: Scan SBOM
         uses: anchore/scan-action@v3
         with:
-          image: sbom-spdx.json
+          sbom: ${{ env.LANGUAGE }}-${{ matrix.version }}-sbom.spdx.json
           acs-report-enable: true
           fail-build: false
       - id: sarif
