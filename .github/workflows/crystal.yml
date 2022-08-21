@@ -28,6 +28,12 @@ jobs:
       - id: cosign
         name: Install Cosign
         uses: sigstore/cosign-installer@main
+      - id: syft
+        name: Install Syft
+        uses: anchore/sbom-action/download-syft@v0.12.0
+      - id: grype
+        name: Install Grype
+        uses: anchore/scan-action/download-grype@v3
       - id: buildx
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -69,29 +75,19 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
       - id: sbom
         name: Generate SBOM
-        uses: anchore/sbom-action@v0
-        with:
-          image: docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
-          artifact-name: sbom-spdx.json
-          dependency-snapshot: true
-          format: spdx-json
-          output-file: ${{ env.LANGUAGE }}-${{ matrix.version }}-sbom.spdx.json
+        run: syft docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }} -o spdx-json=sbom-spdx.json
       - id: sbom-attest
         name: Attest SBOM
         run: |
           cosign attest \
-            --predicate ${{ env.LANGUAGE }}-${{ matrix.version }}-sbom.spdx.json \
+            --predicate sbom-spdx.json \
             --type spdx \
             docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
         env:
           COSIGN_EXPERIMENTAL: "true"
       - id: grype
         name: Scan SBOM with Grype
-        uses: anchore/scan-action@v3
-        with:
-          sbom: ${{ env.LANGUAGE }}-${{ matrix.version }}-sbom.spdx.json
-          acs-report-enable: true
-          fail-build: false
+        run: grype -o sarif --only-fixed sbom:crystal-latest-sbom.spdx.json > grype-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif
       - id: hadolint
         name: Scan Containerfile with Hadolint
         uses: hadolint/hadolint-action@v2.1.0
@@ -103,7 +99,7 @@ jobs:
       - id: fix-sarif
         name: Fix SARIF Reports
         run: |
-          jq '.runs[].automationDetails.id |= "grype-${{ env.LANGUAGE }}-${{ matrix.version }}"' ${{ steps.grype.outputs.sarif }} > grype-fixed.sarif
+          jq '.runs[].automationDetails.id |= "grype-${{ env.LANGUAGE }}-${{ matrix.version }}"' grype-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif > grype-fixed.sarif
           jq '.runs[].automationDetails.id |= "hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}"' hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif > hadolint-fixed.sarif
       - id: grype-upload
         name: Upload Grype SARIF Report
