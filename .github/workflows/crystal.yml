@@ -9,9 +9,6 @@ on:
       - languages/crystal/**
   schedule:
     - cron:  25 3 * * MON
-env:
-  LANGUAGE: crystal
-  DESCRIPTION: Devcontainer for Crystal with Crystalline
 jobs:
   latest:
     uses: ./.github/workflows/publish-image.yml
