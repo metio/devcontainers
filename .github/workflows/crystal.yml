@@ -78,22 +78,40 @@ jobs:
           output-file: ${{ env.LANGUAGE }}-${{ matrix.version }}-sbom.spdx.json
       - id: sbom-attest
         name: Attest SBOM
-        run: cosign attest --predicate ${{ env.LANGUAGE }}-${{ matrix.version }}-sbom.spdx.json --type spdx docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
+        run: |
+          cosign attest \
+            --predicate ${{ env.LANGUAGE }}-${{ matrix.version }}-sbom.spdx.json \
+            --type spdx \
+            docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
         env:
           COSIGN_EXPERIMENTAL: "true"
-      - id: scan
-        name: Scan SBOM
+      - id: grype
+        name: Scan SBOM with Grype
         uses: anchore/scan-action@v3
         with:
           sbom: ${{ env.LANGUAGE }}-${{ matrix.version }}-sbom.spdx.json
           acs-report-enable: true
           fail-build: false
-      - id: sarif
-        name: Upload SARIF Report
+      - id: hadolint
+        name: Scan Containerfile with Hadolint
+        uses: hadolint/hadolint-action@v2.1.0
+        with:
+          dockerfile: ./languages/${{ env.LANGUAGE }}/${{ matrix.version }}/Containerfile
+          format: sarif
+          output-file: hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif
+          no-fail: true
+      - id: grype-upload
+        name: Upload Grype SARIF Report
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: ${{ steps.scan.outputs.sarif }}
-          category: ${{ env.LANGUAGE }}-${{ matrix.version }}
+          sarif_file: ${{ steps.grype.outputs.sarif }}
+          category: grype-${{ env.LANGUAGE }}-${{ matrix.version }}
+      - id: hadolint-upload
+        name: Upload Hadolint SARIF Report
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif
+          category: hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}
       - id: documentation
         name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
