@@ -100,17 +100,22 @@ jobs:
           format: sarif
           output-file: hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif
           no-fail: true
+      - id: fix-sarif
+        name: Fix SARIF Reports
+        run: |
+          jq '.runs[].automationDetails.id |= "grype-${{ env.LANGUAGE }}-${{ matrix.version }}"' ${{ steps.grype.outputs.sarif }} > grype-fixed.sarif
+          jq '.runs[].automationDetails.id |= "hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}"' hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif > hadolint-fixed.sarif
       - id: grype-upload
         name: Upload Grype SARIF Report
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: ${{ steps.grype.outputs.sarif }}
+          sarif_file: grype-fixed.sarif
           category: grype-${{ env.LANGUAGE }}-${{ matrix.version }}
       - id: hadolint-upload
         name: Upload Hadolint SARIF Report
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif
+          sarif_file: hadolint-fixed.sarif
           category: hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}
       - id: documentation
         name: Docker Hub Description
@@ -121,13 +126,3 @@ jobs:
           repository: ${{ env.REPOSITORY }}-${{ env.LANGUAGE }}
           short-description: Devcontainer for Crystal with Crystalline
           readme-filepath: ./languages/${{ env.LANGUAGE }}/README.md
-      - name: Upload Hadolint SARIF as an Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}
-          path: hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif
-      - name: Upload Grype SARIF as an Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: grype-${{ env.LANGUAGE }}-${{ matrix.version }}
-          path: ${{ steps.grype.outputs.sarif }}
