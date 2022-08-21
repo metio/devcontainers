@@ -21,7 +21,7 @@ jobs:
     name: "1.10"
     uses: ./.github/workflows/publish-image.yml
     with:
-      version: 1.10
+      version: "1.10"
       language: elixir
       description: Devcontainer for Elixir with ElixirLS
     secrets: inherit
@@ -29,7 +29,7 @@ jobs:
     name: "1.11"
     uses: ./.github/workflows/publish-image.yml
     with:
-      version: 1.11
+      version: "1.11"
       language: elixir
       description: Devcontainer for Elixir with ElixirLS
     secrets: inherit
@@ -37,7 +37,7 @@ jobs:
     name: "1.12"
     uses: ./.github/workflows/publish-image.yml
     with:
-      version: 1.12
+      version: "1.12"
       language: elixir
       description: Devcontainer for Elixir with ElixirLS
     secrets: inherit
