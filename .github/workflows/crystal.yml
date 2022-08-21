@@ -9,9 +9,6 @@ on:
       - languages/crystal/**
   schedule:
     - cron:  25 3 * * MON
-env:
-  LANGUAGE: crystal
-  DESCRIPTION: Devcontainer for Crystal with Crystalline
 permissions:
   contents: write
   id-token: write
@@ -21,7 +18,7 @@ jobs:
     uses: ./.github/workflows/publish-image.yml
     with:
       version: latest
-      language: ${{ env.LANGUAGE }}
-      description: ${{ env.DESCRIPTION }}
+      language: crystal
+      description: Devcontainer for Crystal with Crystalline
       registry_username: ${{ secrets.DOCKER_USERNAME }}
       registry_password: ${{ secrets.DOCKER_PASSWORD }}
