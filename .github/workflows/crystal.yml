@@ -121,3 +121,13 @@ jobs:
           repository: ${{ env.REPOSITORY }}-${{ env.LANGUAGE }}
           short-description: Devcontainer for Crystal with Crystalline
           readme-filepath: ./languages/${{ env.LANGUAGE }}/README.md
+      - name: Upload Hadolint SARIF as an Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}
+          path: hadolint-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif
+      - name: Upload Grype SARIF as an Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: grype-${{ env.LANGUAGE }}-${{ matrix.version }}
+          path: ${{ steps.grype.outputs.sarif }}
