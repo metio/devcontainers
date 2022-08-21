@@ -25,13 +25,13 @@ jobs:
       - id: checkout
         name: Checkout Code
         uses: actions/checkout@v3
-      - id: cosign
+      - id: cosign-install
         name: Install Cosign
         uses: sigstore/cosign-installer@main
-      - id: syft
+      - id: syft-install
         name: Install Syft
         uses: anchore/sbom-action/download-syft@v0.12.0
-      - id: grype
+      - id: grype-install
         name: Install Grype
         uses: anchore/scan-action/download-grype@v3
       - id: buildx
@@ -85,10 +85,10 @@ jobs:
             docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
         env:
           COSIGN_EXPERIMENTAL: "true"
-      - id: grype
+      - id: grype-scan
         name: Scan SBOM with Grype
         run: grype -o sarif --only-fixed sbom:crystal-latest-sbom.spdx.json > grype-${{ env.LANGUAGE }}-${{ matrix.version }}.sarif
-      - id: hadolint
+      - id: hadolint-scan
         name: Scan Containerfile with Hadolint
         uses: hadolint/hadolint-action@v2.1.0
         with:
