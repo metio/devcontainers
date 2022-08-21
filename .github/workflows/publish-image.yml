@@ -125,6 +125,7 @@ jobs:
           category: hadolint-${{ inputs.language }}-${{ inputs.version }}
       - id: documentation
         name: Docker Hub Description
+        if: ${{ inputs.version }} == "latest"
         uses: peter-evans/dockerhub-description@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
