@@ -85,3 +85,15 @@ jobs:
           repository: ${{ env.REPOSITORY }}-${{ env.LANGUAGE }}
           short-description: Devcontainer for Clojure with clojure-lsp
           readme-filepath: ./languages/${{ env.LANGUAGE }}/README.md
+      - id: scan
+        uses: anchore/scan-action@v3
+        with:
+          sbom: sbom-spdx.json
+          acs-report-enable: true
+          fail-build: false
+      - id: sarif
+        name: upload Anchore scan SARIF report
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarif }}
+          category: ${{ env.LANGUAGE }}-${{ matrix.version }}
