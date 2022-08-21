@@ -102,15 +102,20 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
       - id: grype-scan
         name: Scan SBOM with Grype
-        run: grype -o sarif --only-fixed sbom:sbom-spdx.json > grype-${{ inputs.language }}-${{ inputs.version }}.sarif
+        run: |
+          grype -o sarif --only-fixed sbom:sbom-spdx.json > grype.sarif
+          jq '.runs[].tool.driver.name |= "grype-${{ inputs.language }}-${{ inputs.version }}"' grype.sarif > grype-${{ inputs.language }}-${{ inputs.version }}.sarif
       - id: hadolint-scan
         name: Scan Containerfile with Hadolint
         uses: hadolint/hadolint-action@v2.1.0
         with:
           dockerfile: ./languages/${{ inputs.language }}/${{ inputs.version }}/Containerfile
           format: sarif
-          output-file: hadolint-${{ inputs.language }}-${{ inputs.version }}.sarif
+          output-file: hadolint.sarif
           no-fail: true
+      - id: hadolint-sarif
+        name: Adjust Hadolint SARIF Report
+        run: jq '.runs[].tool.driver.name |= "hadolint-${{ inputs.language }}-${{ inputs.version }}"' hadolint.sarif > hadolint-${{ inputs.language }}-${{ inputs.version }}.sarif
       - id: grype-upload
         name: Upload Grype SARIF Report
         uses: github/codeql-action/upload-sarif@v2
