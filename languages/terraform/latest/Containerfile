@@ -5,7 +5,7 @@
 FROM docker.io/hashicorp/terraform:latest
 
 ENV TF_LS_VERSION=0.29.0
-RUN wget https://releases.hashicorp.com/terraform-ls/${TF_LS_VERSION}/terraform-ls_${TF_LS_VERSION}_linux_amd64.zip -O tfls.zip && \
+RUN wget -q https://releases.hashicorp.com/terraform-ls/${TF_LS_VERSION}/terraform-ls_${TF_LS_VERSION}_linux_amd64.zip -O tfls.zip && \
     unzip tfls.zip && \
     mv terraform-ls /usr/local/bin/terraform-ls && \
     chmod +x /usr/local/bin/terraform-ls && \
