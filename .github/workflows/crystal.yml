@@ -74,9 +74,11 @@ jobs:
           image: docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
           artifact-name: sbom-spdx.json
           dependency-snapshot: true
+          format: spdx-json
+          output-file: ${{ env.LANGUAGE }}-${{ matrix.version }}-sbom.spdx.json
       - id: sbom-attest
         name: Attest SBOM
-        run: cosign attest --predicate sbom-spdx.json --type spdx docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
+        run: cosign attest --predicate ${{ env.LANGUAGE }}-${{ matrix.version }}-sbom.spdx.json --type spdx docker.io/${{ env.REPOSITORY }}-${{ env.LANGUAGE }}@${{ steps.publish.outputs.digest }}
         env:
           COSIGN_EXPERIMENTAL: "true"
       - id: scan
