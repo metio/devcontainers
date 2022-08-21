@@ -16,6 +16,4 @@ jobs:
       version: latest
       language: clojure
       description: Devcontainer for Clojure with clojure-lsp
-    secrets:
-      registry_username: ${{ secrets.DOCKER_USERNAME }}
-      registry_password: ${{ secrets.DOCKER_PASSWORD }}
+    secrets: inherit

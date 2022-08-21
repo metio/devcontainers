@@ -16,6 +16,4 @@ jobs:
       version: latest
       language: crystal
       description: Devcontainer for Crystal with Crystalline
-    secrets:
-      registry_username: ${{ secrets.DOCKER_USERNAME }}
-      registry_password: ${{ secrets.DOCKER_PASSWORD }}
+    secrets: inherit
