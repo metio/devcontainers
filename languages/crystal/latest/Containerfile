@@ -1,12 +1,14 @@
 # Image for Crystal development
 # Based on the official image available at https://hub.docker.com/r/crystallang/crystal
 
+# hadolint ignore=DL3007
 FROM docker.io/crystallang/crystal:latest
 
+# hadolint ignore=DL3008
 RUN apt-get update && \
-    apt-get install --assume-yes wget && \
+    apt-get install --assume-yes --no-install-recommends wget && \
     rm -rf /var/lib/apt/lists/* && \
-    wget https://github.com/elbywan/crystalline/releases/latest/download/crystalline_x86_64-unknown-linux-gnu.gz -O crystalline.gz && \
+    wget --progress=dot:giga https://github.com/elbywan/crystalline/releases/latest/download/crystalline_x86_64-unknown-linux-gnu.gz -O crystalline.gz && \
     gzip -d crystalline.gz && \
     mv crystalline /usr/local/bin/crystalline && \
     chmod u+x /usr/local/bin/crystalline && \
