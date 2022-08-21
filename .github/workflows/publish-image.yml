@@ -29,7 +29,6 @@ on:
         description: The vendor of the container
         default: metio.wtf
         required: false
-
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -103,26 +102,26 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
       - id: grype-scan
         name: Scan SBOM with Grype
-        run: grype -o sarif --only-fixed sbom:sbom-spdx.json > grype.sarif
+        run: grype -o sarif --only-fixed sbom:sbom-spdx.json > grype-${{ inputs.language }}-${{ inputs.version }}.sarif
       - id: hadolint-scan
         name: Scan Containerfile with Hadolint
         uses: hadolint/hadolint-action@v2.1.0
         with:
           dockerfile: ./languages/${{ inputs.language }}/${{ inputs.version }}/Containerfile
           format: sarif
-          output-file: hadolint.sarif
+          output-file: hadolint-${{ inputs.language }}-${{ inputs.version }}.sarif
           no-fail: true
       - id: grype-upload
         name: Upload Grype SARIF Report
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: grype.sarif
+          sarif_file: grype-${{ inputs.language }}-${{ inputs.version }}.sarif
           category: grype-${{ inputs.language }}-${{ inputs.version }}
       - id: hadolint-upload
         name: Upload Hadolint SARIF Report
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: hadolint.sarif
+          sarif_file: hadolint-${{ inputs.language }}-${{ inputs.version }}.sarif
           category: hadolint-${{ inputs.language }}-${{ inputs.version }}
       - id: documentation
         name: Docker Hub Description
