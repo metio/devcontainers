@@ -10,42 +10,14 @@ on:
   schedule:
     - cron:  55 5 * * MON
 jobs:
-  latest:
+  version:
+    strategy:
+      matrix:
+        version: ["latest", "3.10", "3.9", "3.8", "3.7"]
+    name: "${{ matrix.version }}"
     uses: ./.github/workflows/publish-image.yml
     with:
-      version: latest
-      language: python
-      description: Devcontainer for Python with Python Language Server
-    secrets: inherit
-  version-37:
-    name: "3.7"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "3.7"
-      language: python
-      description: Devcontainer for Python with Python Language Server
-    secrets: inherit
-  version-38:
-    name: "3.8"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "3.8"
-      language: python
-      description: Devcontainer for Python with Python Language Server
-    secrets: inherit
-  version-39:
-    name: "3.9"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "3.9"
-      language: python
-      description: Devcontainer for Python with Python Language Server
-    secrets: inherit
-  version-310:
-    name: "3.10"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "3.10"
+      version: "${{ matrix.version }}"
       language: python
       description: Devcontainer for Python with Python Language Server
     secrets: inherit

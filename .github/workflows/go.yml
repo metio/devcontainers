@@ -10,18 +10,14 @@ on:
   schedule:
     - cron:  55 3 * * MON
 jobs:
-  latest:
+  version:
+    strategy:
+      matrix:
+        version: ["latest", "1.18"]
+    name: "${{ matrix.version }}"
     uses: ./.github/workflows/publish-image.yml
     with:
-      version: latest
-      language: go
-      description: Devcontainer for Go with gopls
-    secrets: inherit
-  version-118:
-    name: "1.18"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "1.18"
+      version: "${{ matrix.version }}"
       language: go
       description: Devcontainer for Go with gopls
     secrets: inherit

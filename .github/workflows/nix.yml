@@ -10,10 +10,14 @@ on:
   schedule:
     - cron:  15 5 * * MON
 jobs:
-  latest:
+  version:
+    strategy:
+      matrix:
+        version: ["latest"]
+    name: "${{ matrix.version }}"
     uses: ./.github/workflows/publish-image.yml
     with:
-      version: latest
+      version: "${{ matrix.version }}"
       language: nix
       description: Devcontainer for Nix with Nix Language Server
     secrets: inherit

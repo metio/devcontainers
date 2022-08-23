@@ -10,17 +10,14 @@ on:
   schedule:
     - cron:  45 5 * * MON
 jobs:
-  latest:
+  version:
+    strategy:
+      matrix:
+        version: ["latest", "stable"]
+    name: "${{ matrix.version }}"
     uses: ./.github/workflows/publish-image.yml
     with:
-      version: latest
-      language: prolog
-      description: Devcontainer for Prolog with Prolog Language Server
-    secrets: inherit
-  stable:
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: stable
+      version: "${{ matrix.version }}"
       language: prolog
       description: Devcontainer for Prolog with Prolog Language Server
     secrets: inherit

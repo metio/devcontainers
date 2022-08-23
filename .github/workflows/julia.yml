@@ -10,26 +10,14 @@ on:
   schedule:
     - cron:  45 4 * * MON
 jobs:
-  latest:
+  version:
+    strategy:
+      matrix:
+        version: ["latest", "1.7", "1.6"]
+    name: "${{ matrix.version }}"
     uses: ./.github/workflows/publish-image.yml
     with:
-      version: latest
-      language: julia
-      description: Devcontainer for Julia with Julia Language Server
-    secrets: inherit
-  version-16:
-    name: "1.6"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "1.6"
-      language: julia
-      description: Devcontainer for Julia with Julia Language Server
-    secrets: inherit
-  version-17:
-    name: "1.7"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "1.7"
+      version: "${{ matrix.version }}"
       language: julia
       description: Devcontainer for Julia with Julia Language Server
     secrets: inherit

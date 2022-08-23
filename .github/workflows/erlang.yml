@@ -10,42 +10,14 @@ on:
   schedule:
     - cron:  45 3 * * MON
 jobs:
-  latest:
+  version:
+    strategy:
+      matrix:
+        version: ["latest", "25", "24", "23", "22"]
+    name: "${{ matrix.version }}"
     uses: ./.github/workflows/publish-image.yml
     with:
-      version: latest
-      language: erlang
-      description: Devcontainer for Erlang with Erlang LS
-    secrets: inherit
-  version-22:
-    name: "22"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "22"
-      language: erlang
-      description: Devcontainer for Erlang with Erlang LS
-    secrets: inherit
-  version-23:
-    name: "23"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "23"
-      language: erlang
-      description: Devcontainer for Erlang with Erlang LS
-    secrets: inherit
-  version-24:
-    name: "24"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "24"
-      language: erlang
-      description: Devcontainer for Erlang with Erlang LS
-    secrets: inherit
-  version-25:
-    name: "25"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "25"
+      version: "${{ matrix.version }}"
       language: erlang
       description: Devcontainer for Erlang with Erlang LS
     secrets: inherit

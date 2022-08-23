@@ -10,34 +10,14 @@ on:
   schedule:
     - cron:  35 3 * * MON
 jobs:
-  latest:
+  version:
+    strategy:
+      matrix:
+        version: ["latest", "1.12", "1.11", "1.10"]
+    name: "${{ matrix.version }}"
     uses: ./.github/workflows/publish-image.yml
     with:
-      version: latest
-      language: elixir
-      description: Devcontainer for Elixir with ElixirLS
-    secrets: inherit
-  version-110:
-    name: "1.10"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "1.10"
-      language: elixir
-      description: Devcontainer for Elixir with ElixirLS
-    secrets: inherit
-  version-111:
-    name: "1.11"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "1.11"
-      language: elixir
-      description: Devcontainer for Elixir with ElixirLS
-    secrets: inherit
-  version-112:
-    name: "1.12"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "1.12"
+      version: "${{ matrix.version }}"
       language: elixir
       description: Devcontainer for Elixir with ElixirLS
     secrets: inherit
