@@ -45,7 +45,7 @@ jobs:
         uses: sigstore/cosign-installer@main
       - id: syft-install
         name: Install Syft
-        uses: anchore/sbom-action/download-syft@v0.12.0
+        uses: anchore/sbom-action/download-syft@v0.13.0
       - id: grype-install
         name: Install Grype
         uses: anchore/scan-action/download-grype@v3
