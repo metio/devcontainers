@@ -107,7 +107,7 @@ jobs:
           jq '.runs[].tool.driver.name |= "grype-${{ inputs.language }}-${{ inputs.version }}"' grype.sarif > grype-${{ inputs.language }}-${{ inputs.version }}.sarif
       - id: hadolint-scan
         name: Scan Containerfile with Hadolint
-        uses: hadolint/hadolint-action@v2.1.0
+        uses: hadolint/hadolint-action@v3.0.0
         with:
           dockerfile: ./languages/${{ inputs.language }}/${{ inputs.version }}/Containerfile
           format: sarif
