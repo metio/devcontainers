@@ -26,7 +26,7 @@ jobs:
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.4.0
     with:
       image: docker.io/metio/devcontainers-elixir
-      digest: "${{ needs.version.outputs.digest }}"
+      digest: "sha256:abcdefabcdefabcdefabcdef"
       registry-username: "${{ secrets.DOCKER_USERNAME }}"
     secrets:
       registry-password: "${{ secrets.DOCKER_PASSWORD }}"
