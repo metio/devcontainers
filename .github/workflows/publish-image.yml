@@ -36,6 +36,8 @@ jobs:
       contents: write
       id-token: write
       security-events: write
+    outputs:
+      digest: ${{ steps.publish.outputs.digest }}
     steps:
       - id: checkout
         name: Checkout Code
@@ -138,3 +140,15 @@ jobs:
           repository: ${{ inputs.repository }}-${{ inputs.language }}
           short-description: ${{ inputs.description }}
           readme-filepath: ./languages/${{ inputs.language }}/README.md
+  provenance:
+    needs: [publish]
+    permissions:
+      actions: read
+      id-token: write
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.4.0
+    with:
+      image: docker.io/${{ inputs.repository }}-${{ inputs.language }}
+      digest: ${{ needs.publish.outputs.digest }}
+      registry-username: ${{ secrets.DOCKER_USERNAME }}
+    secrets:
+      registry-password: ${{ secrets.DOCKER_PASSWORD }}
