@@ -24,7 +24,7 @@ jobs:
   provenance:
     needs: [version]
     permissions:
-      actions: read # for detecting the Github Actions environment.
+      actions: read # for detecting the GitHub Actions environment.
       id-token: write # for creating OIDC tokens for signing.
       packages: write # for uploading attestations.
     strategy:
