@@ -21,3 +21,15 @@ jobs:
       language: elixir
       description: Devcontainer for Elixir with ElixirLS
     secrets: inherit
+  provenance:
+    needs: [version]
+    permissions:
+      actions: read
+      id-token: write
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.4.0
+    with:
+      image: ${{ needs.publish.outputs.image }}
+      digest: ${{ needs.publish.outputs.digest }}
+      registry-username: ${{ secrets.DOCKER_USERNAME }}
+    secrets:
+      registry-password: ${{ secrets.DOCKER_PASSWORD }}

@@ -29,6 +29,13 @@ on:
         description: The vendor of the container
         default: metio.wtf
         required: false
+    outputs:
+      digest:
+        description: The OCI image digest.
+        value: ${{ jobs.publish.outputs.digest }}
+      image:
+        description: The OCI image name.
+        value: ${{ jobs.publish.outputs.image }}
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -38,6 +45,7 @@ jobs:
       security-events: write
     outputs:
       digest: ${{ steps.publish.outputs.digest }}
+      image: ${{ steps.image.outputs.name }}
     steps:
       - id: checkout
         name: Checkout Code
@@ -63,6 +71,9 @@ jobs:
       - id: timestamp
         name: Create Timestamp
         run: echo "date=$(date --rfc-3339=seconds)" >> $GITHUB_OUTPUT
+      - id: image
+        name: Image Name
+        run: echo "name=docker.io/${{ inputs.repository }}-${{ inputs.language }}" >> $GITHUB_OUTPUT
       - id: publish
         name: Publish Image
         uses: docker/build-push-action@v3
@@ -71,7 +82,7 @@ jobs:
           context: ./languages/${{ inputs.language }}/${{ inputs.version }}/
           file: ./languages/${{ inputs.language }}/${{ inputs.version }}/Containerfile
           push: true
-          tags: docker.io/${{ inputs.repository }}-${{ inputs.language }}:${{ inputs.version }}
+          tags: ${{ steps.image.outputs.name }}:${{ inputs.version }}
           labels: |
             org.opencontainers.image.title=${{ inputs.language }}
             org.opencontainers.image.description=Image for ${{ inputs.language }} development
@@ -87,19 +98,19 @@ jobs:
           cache-to: type=registry,ref=${{ inputs.repository }}-${{ inputs.language }}:buildcache,mode=max
       - id: sign
         name: Sign Image
-        run: cosign sign docker.io/${{ inputs.repository }}-${{ inputs.language }}@${{ steps.publish.outputs.digest }}
+        run: cosign sign ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }}
         env:
           COSIGN_EXPERIMENTAL: "true"
       - id: sbom
         name: Generate SBOM
-        run: syft docker.io/${{ inputs.repository }}-${{ inputs.language }}@${{ steps.publish.outputs.digest }} -o spdx-json=sbom-spdx.json
+        run: syft ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }} -o spdx-json=sbom-spdx.json
       - id: sbom-attest
         name: Attest SBOM
         run: |
           cosign attest \
             --predicate sbom-spdx.json \
             --type spdx \
-            docker.io/${{ inputs.repository }}-${{ inputs.language }}@${{ steps.publish.outputs.digest }}
+            ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }}
         env:
           COSIGN_EXPERIMENTAL: "true"
       - id: grype-scan
@@ -140,15 +151,3 @@ jobs:
           repository: ${{ inputs.repository }}-${{ inputs.language }}
           short-description: ${{ inputs.description }}
           readme-filepath: ./languages/${{ inputs.language }}/README.md
-  provenance:
-    needs: [publish]
-    permissions:
-      actions: read
-      id-token: write
-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.4.0
-    with:
-      image: docker.io/${{ inputs.repository }}-${{ inputs.language }}
-      digest: ${{ needs.publish.outputs.digest }}
-      registry-username: ${{ secrets.DOCKER_USERNAME }}
-    secrets:
-      registry-password: ${{ secrets.DOCKER_PASSWORD }}
