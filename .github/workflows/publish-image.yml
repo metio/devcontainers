@@ -60,7 +60,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - id: timestamp
         name: Create Timestamp
-        run: echo "::set-output name=date::$(date --rfc-3339=seconds)"
+        run: echo "date=$(date --rfc-3339=seconds)" >> $GITHUB_OUTPUT
       - id: publish
         name: Publish Image
         uses: docker/build-push-action@v3
