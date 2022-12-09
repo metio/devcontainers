@@ -20,6 +20,4 @@ jobs:
       version: "${{ matrix.version }}"
       language: crystal
       description: Devcontainer for Crystal with Crystalline
-    secrets:
-      registry-username: ${{ secrets.DOCKER_USERNAME }}
-      registry-password: ${{ secrets.DOCKER_PASSWORD }}
+    secrets: inherit

@@ -20,6 +20,4 @@ jobs:
       version: "${{ matrix.version }}"
       language: terraform
       description: Devcontainer for Terraform with Terraform Language Server
-    secrets:
-      registry-username: ${{ secrets.DOCKER_USERNAME }}
-      registry-password: ${{ secrets.DOCKER_PASSWORD }}
+    secrets: inherit

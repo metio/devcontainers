@@ -20,6 +20,4 @@ jobs:
       version: "${{ matrix.version }}"
       language: nodejs
       description: Devcontainer for NodeJS with TypeScript Language Server
-    secrets:
-      registry-username: ${{ secrets.DOCKER_USERNAME }}
-      registry-password: ${{ secrets.DOCKER_PASSWORD }}
+    secrets: inherit

@@ -20,6 +20,4 @@ jobs:
       version: "${{ matrix.version }}"
       language: clojure
       description: Devcontainer for Clojure with clojure-lsp
-    secrets:
-      registry-username: ${{ secrets.DOCKER_USERNAME }}
-      registry-password: ${{ secrets.DOCKER_PASSWORD }}
+    secrets: inherit

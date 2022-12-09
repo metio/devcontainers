@@ -20,6 +20,4 @@ jobs:
       version: "${{ matrix.version }}"
       language: perl
       description: Devcontainer for Perl with Perl Language Server
-    secrets:
-      registry-username: ${{ secrets.DOCKER_USERNAME }}
-      registry-password: ${{ secrets.DOCKER_PASSWORD }}
+    secrets: inherit

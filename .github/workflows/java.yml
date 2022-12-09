@@ -20,6 +20,4 @@ jobs:
       version: "${{ matrix.version }}"
       language: java
       description: Devcontainer for Java with JDT LS
-    secrets:
-      registry-username: ${{ secrets.DOCKER_USERNAME }}
-      registry-password: ${{ secrets.DOCKER_PASSWORD }}
+    secrets: inherit

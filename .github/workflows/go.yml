@@ -20,6 +20,4 @@ jobs:
       version: "${{ matrix.version }}"
       language: go
       description: Devcontainer for Go with gopls
-    secrets:
-      registry-username: ${{ secrets.DOCKER_USERNAME }}
-      registry-password: ${{ secrets.DOCKER_PASSWORD }}
+    secrets: inherit
