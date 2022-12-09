@@ -10,7 +10,7 @@ on:
   schedule:
     - cron:  35 3 * * MON
 jobs:
-  version:
+  build:
     strategy:
       matrix:
         version: ["latest", "1.14", "1.13", "1.12", "1.11"]
@@ -22,14 +22,14 @@ jobs:
       description: Devcontainer for Elixir with ElixirLS
     secrets: inherit
   provenance:
-    needs: [version]
+    needs: [build]
     strategy:
       matrix:
         version: ["latest", "1.14", "1.13", "1.12", "1.11"]
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.4.0
     with:
-      image: ${{ needs.version.outputs.image }}
-      digest: ${{ needs.version.outputs.digest }}
-      registry-username: ${{ secrets.DOCKER_USERNAME }}
+      image: "${{ needs.build.outputs.image }}"
+      digest: "${{ needs.build.outputs.digest }}"
+      registry-username: "${{ secrets.DOCKER_USERNAME }}"
     secrets:
       registry-password: "${{ secrets.DOCKER_PASSWORD }}"
