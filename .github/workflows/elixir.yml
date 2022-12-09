@@ -20,5 +20,3 @@ jobs:
       image: docker.io/metio/devcontainers-elixir
       digest: "sha256:abcdefabcdefabcdefabcdef"
       registry-username: "${{ secrets.DOCKER_USERNAME }}"
-    secrets:
-      registry-password: "${{ secrets.DOCKER_PASSWORD }}"
