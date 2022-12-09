@@ -1,8 +1,10 @@
 # devcontainers
 
 This repository contains OCI base images that can be used to develop with a specific programming language and its
-language server. All images are signed with [cosign](https://github.com/sigstore/cosign) and their SBOMs generated with
-[syft](https://github.com/anchore/syft). All images are automatically rebuild weekly.
+language server.  All images are signed with [cosign](https://github.com/sigstore/cosign), their SBOMs generated with
+[syft](https://github.com/anchore/syft), and their [SLSA provenance](https://slsa.dev/provenance/) with
+[slsa-github-generator](https://github.com/slsa-framework/slsa-github-generator). All images are automatically rebuild
+weekly.
 
 ## Available Images
 
