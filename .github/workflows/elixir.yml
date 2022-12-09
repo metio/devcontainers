@@ -22,7 +22,6 @@ jobs:
       description: Devcontainer for Elixir with ElixirLS
     secrets: inherit
   provenance:
-    needs: [version]
     permissions:
       actions: read # for detecting the Github Actions environment.
       id-token: write # for creating OIDC tokens for signing.
