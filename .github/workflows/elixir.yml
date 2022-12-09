@@ -32,4 +32,4 @@ jobs:
       digest: ${{ needs.publish.outputs.digest }}
       registry-username: ${{ secrets.DOCKER_USERNAME }}
     secrets:
-      registry-password: ${{ secrets.DOCKER_PASSWORD }}
+      registry-password: "${{ secrets.DOCKER_PASSWORD }}"
