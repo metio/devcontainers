@@ -23,6 +23,9 @@ jobs:
     secrets: inherit
   provenance:
     needs: [version]
+    strategy:
+      matrix:
+        version: ["latest", "1.14", "1.13", "1.12", "1.11"]
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.4.0
     with:
       image: ${{ needs.version.outputs.image }}
