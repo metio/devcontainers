@@ -10,17 +10,6 @@ on:
   schedule:
     - cron:  35 3 * * MON
 jobs:
-  version:
-    strategy:
-      matrix:
-        version: ["latest", "1.14", "1.13", "1.12", "1.11"]
-    name: "${{ matrix.version }}"
-    uses: ./.github/workflows/publish-image.yml
-    with:
-      version: "${{ matrix.version }}"
-      language: elixir
-      description: Devcontainer for Elixir with ElixirLS
-    secrets: inherit
   provenance:
     permissions:
       actions: read # for detecting the Github Actions environment.
