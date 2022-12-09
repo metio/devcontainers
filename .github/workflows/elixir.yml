@@ -21,19 +21,3 @@ jobs:
       language: elixir
       description: Devcontainer for Elixir with ElixirLS
     secrets: inherit
-  provenance:
-    needs: [version]
-    permissions:
-      actions: read # for detecting the GitHub Actions environment.
-      id-token: write # for creating OIDC tokens for signing.
-      packages: write # for uploading attestations.
-    strategy:
-      matrix:
-        version: ["latest", "1.14", "1.13", "1.12", "1.11"]
-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.4.0
-    with:
-      image: ${{ needs.version.outputs.image }}
-      digest: ${{ needs.version.outputs.digest }}
-      registry-username: sebhoss
-    secrets:
-      registry-password: "${{ secrets.DOCKER_PASSWORD }}"

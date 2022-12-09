@@ -154,6 +154,6 @@ jobs:
     with:
       image: ${{ needs.publish.outputs.image }}
       digest: ${{ needs.publish.outputs.digest }}
-      registry-username: ${{ secrets.registry-username }}
+      registry-username: sebhoss
     secrets:
-      registry-password: ${{ secrets.registry-password }}
+      registry-password: ${{ secrets.DOCKER_PASSWORD }}
