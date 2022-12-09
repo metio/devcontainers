@@ -20,4 +20,6 @@ jobs:
       version: "${{ matrix.version }}"
       language: graalvm
       description: Devcontainer for GraalVM with JDT LS
-    secrets: inherit
+    secrets:
+      registry-username: ${{ secrets.DOCKER_USERNAME }}
+      registry-password: ${{ secrets.DOCKER_PASSWORD }}

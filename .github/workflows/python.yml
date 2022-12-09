@@ -20,4 +20,6 @@ jobs:
       version: "${{ matrix.version }}"
       language: python
       description: Devcontainer for Python with Python Language Server
-    secrets: inherit
+    secrets:
+      registry-username: ${{ secrets.DOCKER_USERNAME }}
+      registry-password: ${{ secrets.DOCKER_PASSWORD }}

@@ -20,4 +20,6 @@ jobs:
       version: "${{ matrix.version }}"
       language: prolog
       description: Devcontainer for Prolog with Prolog Language Server
-    secrets: inherit
+    secrets:
+      registry-username: ${{ secrets.DOCKER_USERNAME }}
+      registry-password: ${{ secrets.DOCKER_PASSWORD }}

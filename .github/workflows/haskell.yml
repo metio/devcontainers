@@ -20,4 +20,6 @@ jobs:
       version: "${{ matrix.version }}"
       language: haskell
       description: Devcontainer for Haskell with Haskell Language Server
-    secrets: inherit
+    secrets:
+      registry-username: ${{ secrets.DOCKER_USERNAME }}
+      registry-password: ${{ secrets.DOCKER_PASSWORD }}
