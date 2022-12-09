@@ -20,7 +20,9 @@ jobs:
       version: "${{ matrix.version }}"
       language: elixir
       description: Devcontainer for Elixir with ElixirLS
-    secrets: inherit
+      registry-username: ${{ secrets.DOCKER_USERNAME }}
+    secrets:
+      registry-password: "${{ secrets.DOCKER_PASSWORD }}"
   provenance:
     needs: [version]
     permissions:
