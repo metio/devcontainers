@@ -10,13 +10,30 @@ on:
   schedule:
     - cron:  35 3 * * MON
 jobs:
+  version:
+    strategy:
+      matrix:
+        version: ["latest", "1.14", "1.13", "1.12", "1.11"]
+    name: "${{ matrix.version }}"
+    uses: ./.github/workflows/publish-image.yml
+    with:
+      version: "${{ matrix.version }}"
+      language: elixir
+      description: Devcontainer for Elixir with ElixirLS
+    secrets: inherit
   provenance:
+    needs: [version]
     permissions:
       actions: read # for detecting the Github Actions environment.
       id-token: write # for creating OIDC tokens for signing.
       packages: write # for uploading attestations.
+    strategy:
+      matrix:
+        version: ["latest", "1.14", "1.13", "1.12", "1.11"]
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.4.0
     with:
-      image: docker.io/metio/devcontainers-elixir
-      digest: "sha256:abcdefabcdefabcdefabcdef"
-      registry-username: "${{ secrets.DOCKER_USERNAME }}"
+      image: ${{ needs.version.outputs.image }}
+      digest: ${{ needs.version.outputs.digest }}
+      registry-username: sebhoss
+    secrets:
+      registry-password: "${{ secrets.DOCKER_PASSWORD }}"
