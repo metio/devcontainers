@@ -4,8 +4,8 @@
 FROM docker.io/library/maven:3-eclipse-temurin-8
 
 # Install Java language server
-ENV JDTLS_VERSION=1.11.0
-ENV JDTLS_TIMESTAMP=202205051421
+ENV JDTLS_VERSION=1.18.0
+ENV JDTLS_TIMESTAMP=202212011657
 RUN curl -L https://download.eclipse.org/jdtls/milestones/${JDTLS_VERSION}/jdt-language-server-${JDTLS_VERSION}-${JDTLS_TIMESTAMP}.tar.gz > jdtls.tar.gz && \
   mkdir /jdtls && \
   tar --extract --gzip --file jdtls.tar.gz --directory /jdtls --no-same-owner && \
