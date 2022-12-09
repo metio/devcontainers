@@ -1,6 +1,6 @@
 # Image for Julia development
 # Based on the official image available at https://hub.docker.com/_/julia
 
-FROM docker.io/library/julia:1.7
+FROM docker.io/library/julia:1.8
 
 RUN julia --eval 'using Pkg; Pkg.add("LanguageServer")'

@@ -7,6 +7,7 @@ images are signed with [cosign](https://github.com/sigstore/cosign) and their SB
 ## Available Tags
 
 - `latest`: Follows `docker.io/library/python:latest` and installs latest released python-lsp-server.
+- `3.11`: Follows `docker.io/library/python:3.11` and installs latest released python-lsp-server.
 - `3.10`: Follows `docker.io/library/python:3.10` and installs latest released python-lsp-server.
 - `3.9`: Follows `docker.io/library/python:3.9` and installs latest released python-lsp-server.
 - `3.8`: Follows `docker.io/library/python:3.8` and installs latest released python-lsp-server.

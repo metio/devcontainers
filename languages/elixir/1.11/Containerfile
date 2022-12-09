@@ -4,7 +4,7 @@
 FROM docker.io/library/elixir:1.11
 
 ENV ELIXIR_VERSION=1.11
-ENV ELIXIR_LS_VERSION=0.9.0
+ENV ELIXIR_LS_VERSION=0.12.0
 RUN wget https://github.com/elixir-lsp/elixir-ls/releases/download/v${ELIXIR_LS_VERSION}/elixir-ls-${ELIXIR_VERSION}.zip -O elixir-ls.zip && \
     mkdir --parents /opt/elixir/ls && \
     unzip elixir-ls.zip -d /opt/elixir/ls
