@@ -27,6 +27,6 @@ jobs:
     with:
       image: docker.io/metio/devcontainers-elixir
       digest: "${{ needs.version.outputs.digest }}"
-      registry-username: ${{ secrets.DOCKER_USERNAME }}
+      registry-username: "${{ secrets.DOCKER_USERNAME }}"
     secrets:
-      registry-password: ${{ secrets.DOCKER_PASSWORD }}
+      registry-password: "${{ secrets.DOCKER_PASSWORD }}"
