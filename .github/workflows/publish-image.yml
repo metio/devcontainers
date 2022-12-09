@@ -36,13 +36,6 @@ on:
         description: The vendor of the container
         default: metio.wtf
         required: false
-    outputs:
-      digest:
-        description: The OCI image digest.
-        value: ${{ jobs.publish.outputs.digest }}
-      image:
-        description: The OCI image name.
-        value: ${{ jobs.publish.outputs.image }}
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -158,3 +151,16 @@ jobs:
           repository: ${{ inputs.repository }}-${{ inputs.language }}
           short-description: ${{ inputs.description }}
           readme-filepath: ./languages/${{ inputs.language }}/README.md
+  provenance:
+    needs: [publish]
+    permissions:
+      actions: read # for detecting the GitHub Actions environment.
+      id-token: write # for creating OIDC tokens for signing.
+      packages: write # for uploading attestations.
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.4.0
+    with:
+      image: ${{ needs.publish.outputs.image }}
+      digest: ${{ needs.publish.outputs.digest }}
+      registry-username: ${{ secrets.registry-username }}
+    secrets:
+      registry-password: ${{ secrets.registry-password }}
