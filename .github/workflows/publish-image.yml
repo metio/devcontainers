@@ -91,7 +91,12 @@ jobs:
           cache-to: type=registry,ref=${{ inputs.repository }}-${{ inputs.language }}:buildcache,mode=max
       - id: sign
         name: Sign Image
-        run: cosign sign ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }}
+        run: |
+          cosign sign \
+            -a "repo=${{ github.repository }}" \
+            -a "workflow=${{ github.workflow }}" \
+            -a "ref=${{ github.sha }}" \
+            ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }}
         env:
           COSIGN_EXPERIMENTAL: "true"
       - id: sbom
