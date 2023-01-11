@@ -59,7 +59,7 @@ jobs:
         name: Login to Dockerhub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - id: timestamp
         name: Create Timestamp
@@ -144,7 +144,7 @@ jobs:
         if: ${{ inputs.version }} == "latest"
         uses: peter-evans/dockerhub-description@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: ${{ inputs.repository }}-${{ inputs.language }}
           short-description: ${{ inputs.description }}
@@ -159,6 +159,6 @@ jobs:
     with:
       image: ${{ needs.publish.outputs.image }}
       digest: ${{ needs.publish.outputs.digest }}
-      registry-username: sebhoss
+      registry-username: ${{ vars.DOCKER_USERNAME }}
     secrets:
       registry-password: ${{ secrets.DOCKER_PASSWORD }}
