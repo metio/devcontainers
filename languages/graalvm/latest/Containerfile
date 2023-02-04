@@ -23,3 +23,8 @@ RUN curl -L https://download.eclipse.org/jdtls/milestones/${JDTLS_VERSION}/jdt-l
   mkdir /jdtls && \
   tar --extract --gzip --file jdtls.tar.gz --directory /jdtls --no-same-owner && \
   rm jdtls.tar.gz
+
+# Install GraalVM dependencies required for native compilation
+RUN apt-get update && \
+    apt-get install --assume-yes --no-install-recommends gcc zlib1g-dev && \
+    rm -rf /var/lib/apt/lists/* \
