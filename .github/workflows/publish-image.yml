@@ -98,11 +98,17 @@ jobs:
             ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }}
         env:
           COSIGN_EXPERIMENTAL: "true"
-      - id: grype-scan
+      - id: grype_scan
+        name: Scan Image with Grype
+        uses: anchore/scan-action@v3
+        with:
+          image: ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }}
+          output-format: sarif
+          only-fixed: true
+          fail-build: false
+      - id: grype_report
         name: Scan SBOM with Grype
-        run: |
-          grype -o sarif --only-fixed sbom:sbom-spdx.json > grype.sarif
-          jq '.runs[].tool.driver.name |= "grype-${{ inputs.language }}-${{ inputs.version }}"' grype.sarif > grype-${{ inputs.language }}-${{ inputs.version }}.sarif
+        run: jq '.runs[].tool.driver.name |= "grype-${{ inputs.language }}-${{ inputs.version }}"' ${{ steps.grype_scan.outputs.sarif }} > grype-${{ inputs.language }}-${{ inputs.version }}.sarif
       - id: hadolint-scan
         name: Scan Containerfile with Hadolint
         uses: hadolint/hadolint-action@v3.1.0
