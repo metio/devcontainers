@@ -107,7 +107,7 @@ jobs:
           only-fixed: true
           fail-build: false
       - id: grype_report
-        name: Scan SBOM with Grype
+        name: Adjust Grype Report
         run: jq '.runs[].tool.driver.name |= "grype-${{ inputs.language }}-${{ inputs.version }}"' ${{ steps.grype_scan.outputs.sarif }} > grype-${{ inputs.language }}-${{ inputs.version }}.sarif
       - id: hadolint-scan
         name: Scan Containerfile with Hadolint
