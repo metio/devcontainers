@@ -46,9 +46,6 @@ jobs:
       - id: cosign-install
         name: Install Cosign
         uses: sigstore/cosign-installer@main
-      - id: syft-install
-        name: Install Syft
-        uses: anchore/sbom-action/download-syft@v0.13.3
       - id: grype-install
         name: Install Grype
         uses: anchore/scan-action/download-grype@v3
@@ -69,7 +66,7 @@ jobs:
         run: echo "name=docker.io/${{ inputs.repository }}-${{ inputs.language }}" >> $GITHUB_OUTPUT
       - id: publish
         name: Publish Image
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: ./languages/${{ inputs.language }}/${{ inputs.version }}/
@@ -89,6 +86,8 @@ jobs:
             org.opencontainers.image.created=${{ steps.timestamp.outputs.date }}
           cache-from: type=registry,ref=${{ inputs.repository }}-${{ inputs.language }}:buildcache
           cache-to: type=registry,ref=${{ inputs.repository }}-${{ inputs.language }}:buildcache,mode=max
+          sbom: true
+          provenance: true
       - id: sign
         name: Sign Image
         run: |
@@ -96,18 +95,6 @@ jobs:
             -a "repo=${{ github.repository }}" \
             -a "workflow=${{ github.workflow }}" \
             -a "ref=${{ github.sha }}" \
-            ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }}
-        env:
-          COSIGN_EXPERIMENTAL: "true"
-      - id: sbom
-        name: Generate SBOM
-        run: syft ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }} -o spdx-json=sbom-spdx.json
-      - id: sbom-attest
-        name: Attest SBOM
-        run: |
-          cosign attest \
-            --predicate sbom-spdx.json \
-            --type spdx \
             ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }}
         env:
           COSIGN_EXPERIMENTAL: "true"
@@ -149,16 +136,3 @@ jobs:
           repository: ${{ inputs.repository }}-${{ inputs.language }}
           short-description: ${{ inputs.description }}
           readme-filepath: ./languages/${{ inputs.language }}/README.md
-  provenance:
-    needs: [publish]
-    permissions:
-      actions: read # for detecting the GitHub Actions environment.
-      id-token: write # for creating OIDC tokens for signing.
-      packages: write # for uploading attestations.
-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.4.0
-    with:
-      image: ${{ needs.publish.outputs.image }}
-      digest: ${{ needs.publish.outputs.digest }}
-      registry-username: ${{ vars.DOCKER_USERNAME }}
-    secrets:
-      registry-password: ${{ secrets.DOCKER_PASSWORD }}
