@@ -1,14 +1,14 @@
-name: Terraform
+name: Ruby
 on:
   push:
     branches:
       - main
     paths:
       - .github/workflows/publish-image.yml
-      - .github/workflows/terraform.yml
-      - languages/terraform/**
+      - .github/workflows/rust.yml
+      - languages/rust/**
   schedule:
-    - cron:  45 6 * * MON
+    - cron:  35 6 * * MON
 jobs:
   version:
     strategy:
@@ -18,6 +18,6 @@ jobs:
     uses: ./.github/workflows/publish-image.yml
     with:
       version: "${{ matrix.version }}"
-      language: terraform
-      description: Devcontainer for Terraform with Terraform Language Server
+      language: rust
+      description: Devcontainer for Rust with rust-analyzer
     secrets: inherit
