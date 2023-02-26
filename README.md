@@ -23,6 +23,7 @@ All images are automatically rebuild weekly.
 - [Python](https://hub.docker.com/r/metio/devcontainers-python)
 - [R](https://hub.docker.com/r/metio/devcontainers-r)
 - [Ruby](https://hub.docker.com/r/metio/devcontainers-ruby)
+- [Rust](https://hub.docker.com/r/metio/devcontainers-rust)
 - [Terraform](https://hub.docker.com/r/metio/devcontainers-terraform)
 
 ## License
