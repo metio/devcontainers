@@ -1,10 +1,12 @@
 # Image for Rust development
 # Based on the official image available at https://hub.docker.com/_/rust
 
+# hadolint ignore=DL3007
 FROM docker.io/library/rust:latest
 
 RUN rustup component add rust-src && \
-    mkdir -p ~/.local/bin && \
-    curl --silent --location https://github.com/rust-lang/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | \
-      gunzip -c - > ~/.local/bin/rust-analyzer && \
-    chmod +x ~/.local/bin/rust-analyzer
+    curl --silent --location --remote-name https://github.com/rust-lang/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz && \
+    gunzip --to-stdout rust-analyzer-x86_64-unknown-linux-gnu.gz > /usr/local/bin/rust-analyzer && \
+    chmod +x /usr/local/bin/rust-analyzer && \
+    /usr/local/bin/rust-analyzer --version && \
+    rm rust-analyzer-x86_64-unknown-linux-gnu.gz
