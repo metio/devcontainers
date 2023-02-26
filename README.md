@@ -17,7 +17,6 @@ All images are automatically rebuild weekly.
 - [Java](https://hub.docker.com/r/metio/devcontainers-java)
 - [Julia](https://hub.docker.com/r/metio/devcontainers-julia)
 - [Nim](https://hub.docker.com/r/metio/devcontainers-nim)
-- [Nix](https://hub.docker.com/r/metio/devcontainers-nix)
 - [NodeJS](https://hub.docker.com/r/metio/devcontainers-nodejs)
 - [Perl](https://hub.docker.com/r/metio/devcontainers-perl)
 - [Prolog](https://hub.docker.com/r/metio/devcontainers-prolog)
