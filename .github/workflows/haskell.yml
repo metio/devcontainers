@@ -13,7 +13,7 @@ jobs:
   version:
     strategy:
       matrix:
-        version: ["latest", "9.4", "9.2", "9.0", "8.10"]
+        version: ["latest", "9.4", "9.2", "9.0"]
     name: "${{ matrix.version }}"
     uses: ./.github/workflows/publish-image.yml
     with:
