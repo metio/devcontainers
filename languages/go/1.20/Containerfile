@@ -1,6 +1,6 @@
 # Image for Go development
 # Based on the official image available at https://hub.docker.com/_/golang
 
-FROM docker.io/library/golang:1.18
+FROM docker.io/library/golang:1.20
 
 RUN go install golang.org/x/tools/gopls@latest
