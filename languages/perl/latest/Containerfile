@@ -1,6 +1,7 @@
 # Image for Perl development
 # Based on the official image available at https://hub.docker.com/_/perl
 
+# hadolint ignore=DL3007
 FROM docker.io/library/perl:latest
 
 RUN cpanm PLS

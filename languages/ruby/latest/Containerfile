@@ -1,6 +1,7 @@
 # Image for Ruby development
 # Based on the official image available at https://hub.docker.com/_/ruby
 
+# hadolint ignore=DL3007
 FROM docker.io/library/ruby:latest
 
 RUN gem install solargraph

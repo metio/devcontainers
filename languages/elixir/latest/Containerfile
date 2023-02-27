@@ -1,6 +1,7 @@
 # Image for Elixir development
 # Based on the official image available at https://hub.docker.com/_/elixir
 
+# hadolint ignore=DL3007
 FROM docker.io/library/elixir:latest
 
 ENV ELIXIR_LS_VERSION=0.12.0

@@ -1,6 +1,7 @@
 # Image for Haskell development
 # Based on the official image available at https://hub.docker.com/_/haskell
 
+# hadolint ignore=DL3007
 FROM docker.io/library/haskell:latest
 
 RUN curl -O https://downloads.haskell.org/~ghcup/x86_64-linux-ghcup && \

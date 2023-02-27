@@ -1,6 +1,7 @@
 # Image for Prolog development
 # Based on the official image available at https://hub.docker.com/_/swipl
 
+# hadolint ignore=DL3007
 FROM docker.io/library/swipl:latest
 
 RUN swipl -t 'pack_install(lsp_server, [interactive(false)]).'
