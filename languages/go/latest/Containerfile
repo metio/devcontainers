@@ -1,6 +1,7 @@
 # Image for Go development
 # Based on the official image available at https://hub.docker.com/_/golang
 
+# hadolint ignore=DL3007
 FROM docker.io/library/golang:latest
 
 RUN go install golang.org/x/tools/gopls@latest
