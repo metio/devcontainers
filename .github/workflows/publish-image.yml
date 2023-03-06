@@ -92,7 +92,7 @@ jobs:
         name: Sign Image
         run: |
           cosign sign \
-            --force \
+            --yes \
             --annotations "repo=${{ github.repository }}" \
             --annotations "workflow=${{ github.workflow }}" \
             --annotations "ref=${{ github.sha }}" \
