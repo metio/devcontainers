@@ -92,9 +92,10 @@ jobs:
         name: Sign Image
         run: |
           cosign sign \
-            -a "repo=${{ github.repository }}" \
-            -a "workflow=${{ github.workflow }}" \
-            -a "ref=${{ github.sha }}" \
+            --force \
+            --annotations "repo=${{ github.repository }}" \
+            --annotations "workflow=${{ github.workflow }}" \
+            --annotations "ref=${{ github.sha }}" \
             ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }}
       - id: grype_scan
         name: Scan Image with Grype
