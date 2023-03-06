@@ -96,8 +96,6 @@ jobs:
             -a "workflow=${{ github.workflow }}" \
             -a "ref=${{ github.sha }}" \
             ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }}
-        env:
-          COSIGN_EXPERIMENTAL: "true"
       - id: grype_scan
         name: Scan Image with Grype
         uses: anchore/scan-action@v3
