@@ -4,4 +4,4 @@
 # hadolint ignore=DL3007
 FROM docker.io/library/node:latest
 
-RUN npm install -g typescript-language-server
+RUN npm install -g typescript-language-server typescript
