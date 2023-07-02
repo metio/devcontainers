@@ -7,5 +7,5 @@ and [SLSA provenance](https://slsa.dev/provenance/) are created with [build-push
 ## Available Tags
 
 - `latest`: Follows `docker.io/library/julia:latest` and installs latest LanguageServer.
-- `1.8`: Follows `docker.io/library/julia:1.8` and installs latest LanguageServer.
+- `1.9`: Follows `docker.io/library/julia:1.9` and installs latest LanguageServer.
 - `1.6`: Follows `docker.io/library/julia:1.6` and installs latest LanguageServer.
