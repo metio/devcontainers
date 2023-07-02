@@ -5,7 +5,7 @@ FROM docker.io/library/maven:3-eclipse-temurin-17
 
 # Install GraalVM
 ENV JAVA_VERSION=17
-ENV GRAALVM_VERSION=22.3.1
+ENV GRAALVM_VERSION=22.3.2
 RUN curl -L https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAALVM_VERSION}/graalvm-ce-java${JAVA_VERSION}-linux-amd64-${GRAALVM_VERSION}.tar.gz > graalvm.tar.gz && \
   tar --extract --gzip --file graalvm.tar.gz --directory / && \
   rm graalvm.tar.gz
