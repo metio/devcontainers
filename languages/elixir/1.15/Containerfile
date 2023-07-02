@@ -1,7 +1,7 @@
 # Image for Elixir development
 # Based on the official image available at https://hub.docker.com/_/elixir
 
-FROM docker.io/library/elixir:1.14
+FROM docker.io/library/elixir:1.15
 
 ENV ELIXIR_LS_VERSION=0.15.1
 RUN wget https://github.com/elixir-lsp/elixir-ls/releases/download/v${ELIXIR_LS_VERSION}/elixir-ls-v${ELIXIR_LS_VERSION}.zip -O elixir-ls.zip && \
