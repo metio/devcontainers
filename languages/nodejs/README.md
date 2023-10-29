@@ -10,4 +10,3 @@ and [SLSA provenance](https://slsa.dev/provenance/) are created with [build-push
 - `latest`: Follows `docker.io/library/node:latest` and installs latest released typescript-language-server.
 - `20`: Follows `docker.io/library/node:20` and installs latest released typescript-language-server.
 - `18`: Follows `docker.io/library/node:18` and installs latest released typescript-language-server.
-- `16`: Follows `docker.io/library/node:16` and installs latest released typescript-language-server.

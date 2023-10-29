@@ -1,6 +1,6 @@
 # Image for Python development
 # Based on the official image available at https://hub.docker.com/_/python
 
-FROM docker.io/library/python:3.7
+FROM docker.io/library/python:3.12
 
 RUN pip install python-lsp-server
