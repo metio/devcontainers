@@ -7,6 +7,7 @@ and [SLSA provenance](https://slsa.dev/provenance/) are created with [build-push
 ## Available Tags
 
 - `latest`: Follows `docker.io/library/maven:latest` and installs latest JDTLS.
+- `21`: Follows `docker.io/library/maven:3-eclipse-temurin-21` and installs latest JDTLS.
 - `17`: Follows `docker.io/library/maven:3-eclipse-temurin-17` and installs latest JDTLS.
 - `11`: Follows `docker.io/library/maven:3-eclipse-temurin-11` and installs latest JDTLS.
 - `8`: Follows `docker.io/library/maven:3-eclipse-temurin-8` and installs latest JDTLS.

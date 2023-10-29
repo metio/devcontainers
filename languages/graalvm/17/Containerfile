@@ -1,30 +1,26 @@
-# Image for Java development with GraalVM and Maven
-# Based on the official image available at https://hub.docker.com/_/maven
+# Image for Java development with GraalVM
+# Based on the official image available at https://github.com/graalvm/container
 
-FROM docker.io/library/maven:3-eclipse-temurin-17
-
-# Install GraalVM
-ENV JAVA_VERSION=17
-ENV GRAALVM_VERSION=22.3.2
-RUN curl -L https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAALVM_VERSION}/graalvm-ce-java${JAVA_VERSION}-linux-amd64-${GRAALVM_VERSION}.tar.gz > graalvm.tar.gz && \
-  tar --extract --gzip --file graalvm.tar.gz --directory / && \
-  rm graalvm.tar.gz
-
-ENV JAVA_HOME="/graalvm-ce-java${JAVA_VERSION}-${GRAALVM_VERSION}"
-ENV PATH="${JAVA_HOME}/bin:$PATH"
-
-# Install native-image
-RUN gu install native-image
+FROM ghcr.io/graalvm/graalvm-community:17
 
 # Install Java language server
-ENV JDTLS_VERSION=1.25.0
-ENV JDTLS_TIMESTAMP=202306291518
-RUN curl -L https://download.eclipse.org/jdtls/milestones/${JDTLS_VERSION}/jdt-language-server-${JDTLS_VERSION}-${JDTLS_TIMESTAMP}.tar.gz > jdtls.tar.gz && \
-  mkdir /jdtls && \
-  tar --extract --gzip --file jdtls.tar.gz --directory /jdtls --no-same-owner && \
-  rm jdtls.tar.gz
+ENV JDTLS_VERSION=1.29.0
+ENV JDTLS_TIMESTAMP=202310261436
+RUN curl --location --silent https://download.eclipse.org/jdtls/milestones/${JDTLS_VERSION}/jdt-language-server-${JDTLS_VERSION}-${JDTLS_TIMESTAMP}.tar.gz --output jdtls.tar.gz && \
+    mkdir /jdtls && \
+    tar --extract --gzip --file jdtls.tar.gz --directory /jdtls --no-same-owner && \
+    rm jdtls.tar.gz
 
-# Install GraalVM dependencies required for native compilation
-RUN apt-get update && \
-    apt-get install --assume-yes --no-install-recommends gcc zlib1g-dev && \
-    rm -rf /var/lib/apt/lists/* \
+# Install Maven
+ENV MAVEN_HOME /usr/share/maven
+
+COPY --from=maven:3-eclipse-temurin-11 ${MAVEN_HOME} ${MAVEN_HOME}
+COPY --from=maven:3-eclipse-temurin-11 /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
+COPY --from=maven:3-eclipse-temurin-11 /usr/share/maven/ref/settings-docker.xml /usr/share/maven/ref/settings-docker.xml
+
+RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
+
+ENV MAVEN_CONFIG "/root/.m2"
+
+ENTRYPOINT ["/usr/local/bin/mvn-entrypoint.sh"]
+CMD ["mvn"]

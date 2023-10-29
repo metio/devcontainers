@@ -1,6 +1,0 @@
-# Image for NodeJS development
-# Based on the official image available at https://hub.docker.com/_/node
-
-FROM docker.io/library/node:16
-
-RUN npm install -g typescript-language-server

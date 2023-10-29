@@ -57,44 +57,30 @@ crystal: ## Build image for Crystal development
 crystal-lint: ## Lint image for Crystal development
 	$(call hadolint,crystal,latest)
 
-.PHONY: dart
-dart: ## Build image for Dart development
-	$(call build-image,dart,latest)
-.PHONY: dart-lint
-dart-lint: ## Lint image for Dart development
-	$(call hadolint,dart,latest)
-
-.PHONY: deno
-deno: ## Build image for Deno development
-	$(call build-image,deno,latest)
-.PHONY: deno-lint
-deno-lint: ## Lint image for Deno development
-	$(call hadolint,deno,latest)
-
 .PHONY: elixir
 elixir: ## Build image for Elixir development
 	$(call build-image,elixir,latest)
 .PHONY: elixir-lint
 elixir-lint: ## Lint image for Elixir development
 	$(call hadolint,elixir,latest)
-.PHONY: elixir-110
-elixir-110: ## Build image for Elixir development
-	$(call build-image,elixir,1.10)
-.PHONY: elixir-110-lint
-elixir-110-lint: ## Lint image for Elixir development
-	$(call hadolint,elixir,1.10)
-.PHONY: elixir-111
-elixir-111: ## Build image for Elixir development
-	$(call build-image,elixir,1.11)
-.PHONY: elixir-111-lint
-elixir-111-lint: ## Lint image for Elixir development
-	$(call hadolint,elixir,1.11)
-.PHONY: elixir-112
-elixir-112: ## Build image for Elixir development
-	$(call build-image,elixir,1.12)
-.PHONY: elixir-112-lint
-elixir-112-lint: ## Lint image for Elixir development
-	$(call hadolint,elixir,1.12)
+.PHONY: elixir-115
+elixir-115: ## Build image for Elixir development
+	$(call build-image,elixir,1.15)
+.PHONY: elixir-115-lint
+elixir-115-lint: ## Lint image for Elixir development
+	$(call hadolint,elixir,1.15)
+.PHONY: elixir-114
+elixir-114: ## Build image for Elixir development
+	$(call build-image,elixir,1.14)
+.PHONY: elixir-114-lint
+elixir-114-lint: ## Lint image for Elixir development
+	$(call hadolint,elixir,1.14)
+.PHONY: elixir-113
+elixir-113: ## Build image for Elixir development
+	$(call build-image,elixir,1.13)
+.PHONY: elixir-113-lint
+elixir-113-lint: ## Lint image for Elixir development
+	$(call hadolint,elixir,1.13)
 
 .PHONY: erlang
 erlang: ## Build image for Erlang development
@@ -120,12 +106,6 @@ erlang-23: ## Build image for Erlang development
 .PHONY: erlang-23-lint
 erlang-23-lint: ## Lint image for Erlang development
 	$(call hadolint,erlang,23)
-.PHONY: erlang-22
-erlang-22: ## Build image for Erlang development
-	$(call build-image,erlang,22)
-.PHONY: erlang-22-lint
-erlang-22-lint: ## Lint image for Erlang development
-	$(call hadolint,erlang,22)
 
 .PHONY: go
 go: ## Build image for Go development
@@ -133,6 +113,18 @@ go: ## Build image for Go development
 .PHONY: go-lint
 go-lint: ## Lint image for Go development
 	$(call hadolint,go,latest)
+.PHONY: go-121
+go-121: ## Build image for Go development
+	$(call build-image,go,1.21)
+.PHONY: go-121-lint
+go-121-lint: ## Lint image for Go development
+	$(call hadolint,go,1.21)
+.PHONY: go-120
+go-120: ## Build image for Go development
+	$(call build-image,go,1.20)
+.PHONY: go-120-lint
+go-120-lint: ## Lint image for Go development
+	$(call hadolint,go,1.20)
 
 .PHONY: haskell
 haskell: ## Build image for Haskell development
@@ -140,31 +132,24 @@ haskell: ## Build image for Haskell development
 .PHONY: haskell-lint
 haskell-lint: ## Lint image for Haskell development
 	$(call hadolint,haskell,latest)
-.PHONY: haskell-810
-haskell-810: ## Build image for Haskell development
-	$(call build-image,haskell,8.10)
-.PHONY: haskell-810-lint
-haskell-810-lint: ## Lint image for Haskell development
-	$(call hadolint,haskell,8.10)
-.PHONY: haskell-90
-haskell-90: ## Build image for Haskell development
-	$(call build-image,haskell,9.0)
-.PHONY: haskell-90-lint
-haskell-90-lint: ## Lint image for Haskell development
-	$(call hadolint,haskell,9.0)
+.PHONY: haskell-94
+haskell-94: ## Build image for Haskell development
+	$(call build-image,haskell,9.4)
+.PHONY: haskell-94-lint
+haskell-94-lint: ## Lint image for Haskell development
+	$(call hadolint,haskell,9.4)
 .PHONY: haskell-92
 haskell-92: ## Build image for Haskell development
 	$(call build-image,haskell,9.2)
 .PHONY: haskell-92-lint
 haskell-92-lint: ## Lint image for Haskell development
 	$(call hadolint,haskell,9.2)
-
-.PHONY: haxe
-haxe: ## Build image for Haxe development
-	$(call build-image,haxe,latest)
-.PHONY: haxe-lint
-haxe-lint: ## Lint image for Haxe development
-	$(call hadolint,haxe,latest)
+.PHONY: haskell-90
+haskell-90: ## Build image for Haskell development
+	$(call build-image,haskell,9.0)
+.PHONY: haskell-90-lint
+haskell-90-lint: ## Lint image for Haskell development
+	$(call hadolint,haskell,9.0)
 
 .PHONY: java
 java: ## Build image for Java development
@@ -172,24 +157,30 @@ java: ## Build image for Java development
 .PHONY: java-lint
 java-lint: ## Lint image for Java development
 	$(call hadolint,java,latest)
-.PHONY: java-8
-java-8: ## Build image for Java development
-	$(call build-image,java,8)
-.PHONY: java-8-lint
-java-8-lint: ## Lint image for Java development
-	$(call hadolint,java,8)
-.PHONY: java-11
-java-11: ## Build image for Java development
-	$(call build-image,java,11)
-.PHONY: java-11-lint
-java-11-lint: ## Lint image for Java development
-	$(call hadolint,java,11)
+.PHONY: java-21
+java-21: ## Build image for Java development
+	$(call build-image,java,21)
+.PHONY: java-21-lint
+java-21-lint: ## Lint image for Java development
+	$(call hadolint,java,21)
 .PHONY: java-17
 java-17: ## Build image for Java development
 	$(call build-image,java,17)
 .PHONY: java-17-lint
 java-17-lint: ## Lint image for Java development
 	$(call hadolint,java,17)
+.PHONY: java-11
+java-11: ## Build image for Java development
+	$(call build-image,java,11)
+.PHONY: java-11-lint
+java-11-lint: ## Lint image for Java development
+	$(call hadolint,java,11)
+.PHONY: java-8
+java-8: ## Build image for Java development
+	$(call build-image,java,8)
+.PHONY: java-8-lint
+java-8-lint: ## Lint image for Java development
+	$(call hadolint,java,8)
 
 .PHONY: graalvm
 graalvm: ## Build image for Java development with GraalVM
@@ -197,6 +188,12 @@ graalvm: ## Build image for Java development with GraalVM
 .PHONY: graalvm-lint
 graalvm-lint: ## Lint image for Java development with GraalVM
 	$(call hadolint,graalvm,latest)
+.PHONY: graalvm-21
+graalvm-21: ## Build image for Java development with GraalVM
+	$(call build-image,graalvm,21)
+.PHONY: graalvm-21-lint
+graalvm-21-lint: ## Lint image for Java development with GraalVM
+	$(call hadolint,graalvm,21)
 .PHONY: graalvm-17
 graalvm-17: ## Build image for Java development with GraalVM
 	$(call build-image,graalvm,17)
@@ -216,18 +213,18 @@ julia: ## Build image for Julia development
 .PHONY: julia-lint
 julia-lint: ## Lint image for Julia development
 	$(call hadolint,julia,latest)
+.PHONY: julia-19
+julia-19: ## Build image for Julia development
+	$(call build-image,julia,1.9)
+.PHONY: julia-19-lint
+julia-19-lint: ## Lint image for Julia development
+	$(call hadolint,julia,1.9)
 .PHONY: julia-16
 julia-16: ## Build image for Julia development
 	$(call build-image,julia,1.6)
 .PHONY: julia-16-lint
 julia-16-lint: ## Lint image for Julia development
 	$(call hadolint,julia,1.6)
-.PHONY: julia-17
-julia-17: ## Build image for Julia development
-	$(call build-image,julia,1.7)
-.PHONY: julia-17-lint
-julia-17-lint: ## Lint image for Julia development
-	$(call hadolint,julia,1.7)
 
 .PHONY: nim
 nim: ## Build image for Nim development
@@ -236,19 +233,18 @@ nim: ## Build image for Nim development
 nim-lint: ## Lint image for Nim development
 	$(call hadolint,nim,latest)
 
-.PHONY: nix
-nix: ## Build image for Nix development
-	$(call build-image,nix,latest)
-.PHONY: nix-lint
-nix-lint: ## Lint image for Nix development
-	$(call hadolint,nix,latest)
-
 .PHONY: nodejs
 nodejs: ## Build image for NodeJS development
 	$(call build-image,nodejs,latest)
 .PHONY: nodejs-lint
 nodejs-lint: ## Lint image for NodeJS development
 	$(call hadolint,nodejs,latest)
+.PHONY: nodejs-20
+nodejs-20: ## Build image for NodeJS development
+	$(call build-image,nodejs,20)
+.PHONY: nodejs-20-lint
+nodejs-20-lint: ## Lint image for NodeJS development
+	$(call hadolint,nodejs,20)
 .PHONY: nodejs-18
 nodejs-18: ## Build image for NodeJS development
 	$(call build-image,nodejs,18)
@@ -295,30 +291,36 @@ python: ## Build image for Python development
 .PHONY: python-lint
 python-lint: ## Lint image for Python development
 	$(call hadolint,python,latest)
-.PHONY: python-37
-python-37: ## Build image for Python development
-	$(call build-image,python,3.7)
-.PHONY: python-37-lint
-python-37-lint: ## Lint image for Python development
-	$(call hadolint,python,3.7)
-.PHONY: python-38
-python-38: ## Build image for Python development
-	$(call build-image,python,3.8)
-.PHONY: python-38-lint
-python-38-lint: ## Lint image for Python development
-	$(call hadolint,python,3.8)
-.PHONY: python-39
-python-39: ## Build image for Python development
-	$(call build-image,python,3.9)
-.PHONY: python-39-lint
-python-39-lint: ## Lint image for Python development
-	$(call hadolint,python,3.9)
+.PHONY: python-312
+python-312: ## Build image for Python development
+	$(call build-image,python,3.12)
+.PHONY: python-312-lint
+python-312-lint: ## Lint image for Python development
+	$(call hadolint,python,3.12)
+.PHONY: python-311
+python-311: ## Build image for Python development
+	$(call build-image,python,3.11)
+.PHONY: python-311-lint
+python-311-lint: ## Lint image for Python development
+	$(call hadolint,python,3.11)
 .PHONY: python-310
 python-310: ## Build image for Python development
 	$(call build-image,python,3.10)
 .PHONY: python-310-lint
 python-310-lint: ## Lint image for Python development
 	$(call hadolint,python,3.10)
+.PHONY: python-39
+python-39: ## Build image for Python development
+	$(call build-image,python,3.9)
+.PHONY: python-39-lint
+python-39-lint: ## Lint image for Python development
+	$(call hadolint,python,3.9)
+.PHONY: python-38
+python-38: ## Build image for Python development
+	$(call build-image,python,3.8)
+.PHONY: python-38-lint
+python-38-lint: ## Lint image for Python development
+	$(call hadolint,python,3.8)
 
 .PHONY: r
 r: ## Build image for R development

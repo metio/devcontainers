@@ -6,6 +6,6 @@ and [SLSA provenance](https://slsa.dev/provenance/) are created with [build-push
 
 ## Available Tags
 
-- `latest`: Follows `docker.io/library/maven:3-eclipse-temurin-17` and installs latest Graal + JDTLS.
-- `17`: Follows `docker.io/library/maven:3-eclipse-temurin-17` and installs latest Graal + JDTLS.
-- `11`: Follows `docker.io/library/maven:3-eclipse-temurin-11` and installs latest Graal + JDTLS.
+- `latest`: Based on `ghcr.io/graalvm/graalvm-community:21` and installs latest Maven + JDTLS.
+- `21`: Based `ghcr.io/graalvm/graalvm-community:21` and installs latest Maven + JDTLS.
+- `17`: Based `ghcr.io/graalvm/graalvm-community:17` and installs latest Maven + JDTLS.
