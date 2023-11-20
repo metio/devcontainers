@@ -9,6 +9,7 @@ on:
       - languages/erlang/**
   schedule:
     - cron:  45 3 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

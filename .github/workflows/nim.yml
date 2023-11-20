@@ -9,6 +9,7 @@ on:
       - languages/nim/**
   schedule:
     - cron:  55 4 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

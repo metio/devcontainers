@@ -9,6 +9,7 @@ on:
       - languages/haskell/**
   schedule:
     - cron:  25 4 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

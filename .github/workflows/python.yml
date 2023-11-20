@@ -9,6 +9,7 @@ on:
       - languages/python/**
   schedule:
     - cron:  55 5 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

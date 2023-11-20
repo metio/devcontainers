@@ -9,6 +9,7 @@ on:
       - languages/java/**
   schedule:
     - cron:  35 4 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

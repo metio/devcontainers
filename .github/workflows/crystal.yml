@@ -9,6 +9,7 @@ on:
       - languages/crystal/**
   schedule:
     - cron:  25 3 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

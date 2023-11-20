@@ -9,6 +9,7 @@ on:
       - languages/clojure/**
   schedule:
     - cron:  15 3 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

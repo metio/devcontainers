@@ -9,6 +9,7 @@ on:
       - languages/perl/**
   schedule:
     - cron:  35 5 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

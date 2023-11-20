@@ -9,6 +9,7 @@ on:
       - languages/rust/**
   schedule:
     - cron:  35 6 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

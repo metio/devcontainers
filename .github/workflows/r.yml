@@ -9,6 +9,7 @@ on:
       - languages/r/**
   schedule:
     - cron:  15 6 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

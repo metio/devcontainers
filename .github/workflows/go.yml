@@ -9,6 +9,7 @@ on:
       - languages/go/**
   schedule:
     - cron:  55 3 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

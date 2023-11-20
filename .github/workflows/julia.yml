@@ -9,6 +9,7 @@ on:
       - languages/julia/**
   schedule:
     - cron:  45 4 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

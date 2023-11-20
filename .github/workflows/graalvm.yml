@@ -9,6 +9,7 @@ on:
       - languages/graalvm/**
   schedule:
     - cron:  15 4 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

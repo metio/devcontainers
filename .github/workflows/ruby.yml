@@ -9,6 +9,7 @@ on:
       - languages/ruby/**
   schedule:
     - cron:  25 6 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

@@ -9,6 +9,7 @@ on:
       - languages/prolog/**
   schedule:
     - cron:  45 5 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

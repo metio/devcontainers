@@ -9,6 +9,7 @@ on:
       - languages/nodejs/**
   schedule:
     - cron:  25 5 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:

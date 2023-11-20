@@ -9,6 +9,7 @@ on:
       - languages/terraform/**
   schedule:
     - cron:  45 6 * * MON
+  workflow_dispatch:
 jobs:
   version:
     strategy:
