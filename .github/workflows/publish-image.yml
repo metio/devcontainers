@@ -99,7 +99,7 @@ jobs:
             ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }}
       - id: grype_scan
         name: Scan Image with Grype
-        uses: sebhoss/scan-action@test-flag-1
+        uses: anchore/scan-action@v3
         with:
           image: ${{ steps.image.outputs.name }}@${{ steps.publish.outputs.digest }}
           output-format: sarif
