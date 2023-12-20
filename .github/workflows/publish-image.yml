@@ -42,19 +42,19 @@ jobs:
     steps:
       - id: checkout
         name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - id: cosign-install
         name: Install Cosign
-        uses: sigstore/cosign-installer@main
+        uses: sigstore/cosign-installer@v3
       - id: grype-install
         name: Install Grype
         uses: anchore/scan-action/download-grype@v3
       - id: buildx
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
       - id: dockerhub_login
         name: Login to Dockerhub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
@@ -66,7 +66,7 @@ jobs:
         run: echo "name=docker.io/${{ inputs.repository }}-${{ inputs.language }}" >> $GITHUB_OUTPUT
       - id: publish
         name: Publish Image
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: ./languages/${{ inputs.language }}/${{ inputs.version }}/
@@ -122,13 +122,13 @@ jobs:
         run: jq '.runs[].tool.driver.name |= "hadolint-${{ inputs.language }}-${{ inputs.version }}"' hadolint.sarif > hadolint-${{ inputs.language }}-${{ inputs.version }}.sarif
       - id: grype-upload
         name: Upload Grype SARIF Report
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: grype-${{ inputs.language }}-${{ inputs.version }}.sarif
           category: grype-${{ inputs.language }}-${{ inputs.version }}
       - id: hadolint-upload
         name: Upload Hadolint SARIF Report
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: hadolint-${{ inputs.language }}-${{ inputs.version }}.sarif
           category: hadolint-${{ inputs.language }}-${{ inputs.version }}

@@ -7,7 +7,8 @@ and [SLSA provenance](https://slsa.dev/provenance/) are created with [build-push
 ## Available Tags
 
 - `latest`: Follows `docker.io/library/haskell:latest`, installs latest ghcup and uses that to install latest hls.
+- `9.8`: Follows `docker.io/library/haskell:9.8`, installs latest ghcup and uses that to install latest hls.
+- `9.6`: Follows `docker.io/library/haskell:9.6`, installs latest ghcup and uses that to install latest hls.
 - `9.4`: Follows `docker.io/library/haskell:9.4`, installs latest ghcup and uses that to install latest hls.
 - `9.2`: Follows `docker.io/library/haskell:9.2`, installs latest ghcup and uses that to install latest hls.
 - `9.0`: Follows `docker.io/library/haskell:9.0`, installs latest ghcup and uses that to install latest hls.
-- `8.10`: Follows `docker.io/library/haskell:8.10`, installs latest ghcup and uses that to install latest hls.
