@@ -7,6 +7,7 @@ and [SLSA provenance](https://slsa.dev/provenance/) are created with [build-push
 ## Available Tags
 
 - `latest`: Follows `docker.io/library/elixir:latest` and installs latest elixir-ls.
+- `1.16`: Follows `docker.io/library/elixir:1.16` and installs latest elixir-ls.
 - `1.15`: Follows `docker.io/library/elixir:1.15` and installs latest elixir-ls.
 - `1.14`: Follows `docker.io/library/elixir:1.14` and installs latest elixir-ls.
 - `1.13`: Follows `docker.io/library/elixir:1.13` and installs latest elixir-ls.

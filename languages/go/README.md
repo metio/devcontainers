@@ -7,5 +7,5 @@ and [SLSA provenance](https://slsa.dev/provenance/) are created with [build-push
 ## Available Tags
 
 - `latest`: Follows `docker.io/library/golang:latest` and installs latest golang.org/x/tools/gopls.
+- `1.22`: Follows `docker.io/library/golang:1.22` and installs latest golang.org/x/tools/gopls.
 - `1.21`: Follows `docker.io/library/golang:1.21` and installs latest golang.org/x/tools/gopls.
-- `1.20`: Follows `docker.io/library/golang:1.20` and installs latest golang.org/x/tools/gopls.

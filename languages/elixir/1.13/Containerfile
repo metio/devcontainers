@@ -3,7 +3,7 @@
 
 FROM docker.io/library/elixir:1.13
 
-ENV ELIXIR_LS_VERSION=0.17.10
+ENV ELIXIR_LS_VERSION=0.20.0
 RUN wget https://github.com/elixir-lsp/elixir-ls/releases/download/v${ELIXIR_LS_VERSION}/elixir-ls-v${ELIXIR_LS_VERSION}.zip -O elixir-ls.zip && \
     mkdir --parents /opt/elixir/ls && \
     unzip elixir-ls.zip -d /opt/elixir/ls

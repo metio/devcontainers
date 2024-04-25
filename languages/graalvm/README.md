@@ -6,6 +6,7 @@ and [SLSA provenance](https://slsa.dev/provenance/) are created with [build-push
 
 ## Available Tags
 
-- `latest`: Based on `ghcr.io/graalvm/graalvm-community:21` and installs latest Maven + JDTLS.
+- `latest`: Based on `ghcr.io/graalvm/graalvm-community:22` and installs latest Maven + JDTLS.
+- `22`: Based `ghcr.io/graalvm/graalvm-community:22` and installs latest Maven + JDTLS.
 - `21`: Based `ghcr.io/graalvm/graalvm-community:21` and installs latest Maven + JDTLS.
 - `17`: Based `ghcr.io/graalvm/graalvm-community:17` and installs latest Maven + JDTLS.
