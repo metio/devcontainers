@@ -1,9 +1,9 @@
 <!--
 SPDX-FileCopyrightText: The devcontainers Authors
 SPDX-License-Identifier: 0BSD
- -->
+-->
 
-# devcontainers [![Chat](https://img.shields.io/badge/matrix-%23talk.metio:matrix.org-brightgreen.svg?style=social&label=Matrix)](https://matrix.to/#/#talk.metio:matrix.org)
+# devcontainers
 
 This repository contains OCI base images that can be used to develop with a specific programming language and its
 language server.  All images are signed with [cosign](https://github.com/sigstore/cosign). Their [SBOMs](https://ntia.gov/page/software-bill-materials)
@@ -30,3 +30,7 @@ All images are automatically rebuild weekly.
 - [Ruby](https://hub.docker.com/r/metio/devcontainers-ruby)
 - [Rust](https://hub.docker.com/r/metio/devcontainers-rust)
 - [Terraform](https://hub.docker.com/r/metio/devcontainers-terraform)
+
+## License
+
+[0BSD](LICENSES/0BSD.txt).
