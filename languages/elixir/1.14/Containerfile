@@ -2,6 +2,7 @@
 # Based on the official image available at https://hub.docker.com/_/elixir
 
 FROM docker.io/library/elixir:1.14
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 ENV ELIXIR_LS_VERSION=0.20.0
 RUN wget https://github.com/elixir-lsp/elixir-ls/releases/download/v${ELIXIR_LS_VERSION}/elixir-ls-v${ELIXIR_LS_VERSION}.zip -O elixir-ls.zip && \

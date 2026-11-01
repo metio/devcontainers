@@ -2,5 +2,6 @@
 # Based on the official image available at https://hub.docker.com/_/julia
 
 FROM docker.io/library/julia:1.6
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN julia --eval 'using Pkg; Pkg.add("LanguageServer")'

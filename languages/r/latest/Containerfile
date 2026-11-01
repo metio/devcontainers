@@ -3,5 +3,6 @@
 
 # hadolint ignore=DL3007
 FROM docker.io/library/r-base:latest
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN R -e 'install.packages("languageserver")'

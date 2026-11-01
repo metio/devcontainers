@@ -3,6 +3,7 @@
 
 # hadolint ignore=DL3007
 FROM docker.io/crystallang/crystal:latest-alpine
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 # hadolint ignore=DL3008
 RUN apk add --update --no-cache wget && \

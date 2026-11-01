@@ -3,6 +3,7 @@
 
 # hadolint ignore=DL3007
 FROM docker.io/library/erlang:latest
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN git clone https://github.com/erlang-ls/erlang_ls.git && \
     cd /erlang_ls && \

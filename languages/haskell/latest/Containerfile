@@ -3,6 +3,7 @@
 
 # hadolint ignore=DL3007
 FROM docker.io/library/haskell:latest
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN curl -O https://downloads.haskell.org/~ghcup/x86_64-linux-ghcup && \
     mv x86_64-linux-ghcup /usr/local/bin/ghcup && \

@@ -2,6 +2,7 @@
 # Based on the official image available at https://hub.docker.com/_/maven
 
 FROM docker.io/library/maven:3-eclipse-temurin-8
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 # Install Java language server
 ENV JDTLS_VERSION=1.35.0

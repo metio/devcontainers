@@ -3,6 +3,7 @@
 
 # hadolint ignore=DL3007
 FROM docker.io/hashicorp/terraform:latest
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 ENV TF_LS_VERSION=0.32.4
 RUN wget -q https://releases.hashicorp.com/terraform-ls/${TF_LS_VERSION}/terraform-ls_${TF_LS_VERSION}_linux_amd64.zip -O tfls.zip && \

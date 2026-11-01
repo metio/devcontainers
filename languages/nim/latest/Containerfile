@@ -3,6 +3,7 @@
 
 # hadolint ignore=DL3007
 FROM docker.io/nimlang/nim:latest
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN nimble refresh
 RUN nimble install -y nimlsp

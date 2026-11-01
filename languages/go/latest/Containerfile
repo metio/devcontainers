@@ -3,5 +3,6 @@
 
 # hadolint ignore=DL3007
 FROM docker.io/library/golang:latest
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN go install golang.org/x/tools/gopls@latest

@@ -2,5 +2,6 @@
 # Based on the official image available at https://hub.docker.com/_/python
 
 FROM docker.io/library/python:3.12
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN pip install python-lsp-server

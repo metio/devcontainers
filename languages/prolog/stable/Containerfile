@@ -2,5 +2,6 @@
 # Based on the official image available at https://hub.docker.com/_/swipl
 
 FROM docker.io/library/swipl:stable
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN swipl -t 'pack_install(lsp_server, [interactive(false)]).'

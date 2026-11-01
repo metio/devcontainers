@@ -3,5 +3,6 @@
 
 # hadolint ignore=DL3007
 FROM docker.io/library/swipl:latest
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN swipl -t 'pack_install(lsp_server, [interactive(false)]).'

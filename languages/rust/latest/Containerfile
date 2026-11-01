@@ -3,6 +3,7 @@
 
 # hadolint ignore=DL3007
 FROM docker.io/library/rust:latest
+LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN rustup component add rust-src && \
     curl --silent --location --remote-name https://github.com/rust-lang/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz && \
