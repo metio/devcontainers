@@ -1,7 +1,7 @@
 # Image for Java development with GraalVM
 # Based on the official image available at https://github.com/graalvm/container
 
-FROM ghcr.io/graalvm/graalvm-community:17
+FROM ghcr.io/graalvm/graalvm-community:25@sha256:7eeb80438dcda5edfcc58e804ce919018d2bf40ef61ddbb555936a8ba2a216aa
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 # Install Java language server
