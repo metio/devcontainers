@@ -2,7 +2,7 @@
 # Based on the official image available at https://hub.docker.com/r/nimlang/nim
 
 # hadolint ignore=DL3007
-FROM docker.io/nimlang/nim:latest
+FROM docker.io/nimlang/nim:latest@sha256:34bbc4d3d84137fd5da9ce50313268aaac48a7390185264027be0f3cf20848d9
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN nimble refresh

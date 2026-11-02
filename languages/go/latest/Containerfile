@@ -2,7 +2,7 @@
 # Based on the official image available at https://hub.docker.com/_/golang
 
 # hadolint ignore=DL3007
-FROM docker.io/library/golang:latest
+FROM docker.io/library/golang:latest@sha256:2920bb124f1a2e12a1d39f0cab756ae0068441ee1da7655dec7f5e374944095b
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN go install golang.org/x/tools/gopls@latest

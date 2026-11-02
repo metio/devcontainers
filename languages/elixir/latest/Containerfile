@@ -2,7 +2,7 @@
 # Based on the official image available at https://hub.docker.com/_/elixir
 
 # hadolint ignore=DL3007
-FROM docker.io/library/elixir:latest
+FROM docker.io/library/elixir:latest@sha256:23642332ffac151b68f7ba0029e93fba2ba6083c0944efc06087957e2109e21c
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 ENV ELIXIR_LS_VERSION=0.20.0
