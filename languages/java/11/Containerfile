@@ -1,7 +1,7 @@
 # Image for Java development with Maven
 # Based on the official image available at https://hub.docker.com/_/maven
 
-FROM docker.io/library/maven:3-eclipse-temurin-11
+FROM docker.io/library/maven:3-eclipse-temurin-11@sha256:a2e6761472e54c817f185ab9c8e0f5e9f2aaff62cb1ed6a1b842f6faf08bd9e5
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 # Install Java language server

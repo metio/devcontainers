@@ -2,7 +2,7 @@
 # Based on the official image available at https://hub.docker.com/r/crystallang/crystal
 
 # hadolint ignore=DL3007
-FROM docker.io/crystallang/crystal:latest-alpine
+FROM docker.io/crystallang/crystal:latest-alpine@sha256:a0c2fb92a6ce855e8d40bdffe729e2fcccf98dac929d0f9f589fad8c88e297a1
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 # hadolint ignore=DL3008

@@ -2,7 +2,7 @@
 # Based on the official image available at https://hub.docker.com/_/swipl
 
 # hadolint ignore=DL3007
-FROM docker.io/library/swipl:latest
+FROM docker.io/library/swipl:latest@sha256:faecb68d69d711a1e70e20c57cb564b398a4a675e343a0bd35a17d51c613ed1f
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN swipl -t 'pack_install(lsp_server, [interactive(false)]).'

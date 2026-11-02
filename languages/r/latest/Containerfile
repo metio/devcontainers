@@ -2,7 +2,7 @@
 # Based on the official image available at https://hub.docker.com/_/r-base
 
 # hadolint ignore=DL3007
-FROM docker.io/library/r-base:latest
+FROM docker.io/library/r-base:latest@sha256:857b44eeca5a8c4f39b210d3912a879fa4cf4b47d9e57a5940b6a29d44c8f938
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN R -e 'install.packages("languageserver")'

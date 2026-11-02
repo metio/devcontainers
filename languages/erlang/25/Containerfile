@@ -1,7 +1,7 @@
 # Image for Erlang development
 # Based on the official image available at https://hub.docker.com/_/erlang
 
-FROM docker.io/library/erlang:25
+FROM docker.io/library/erlang:25@sha256:9197cc231795b458eb7f90f940b2ca62fec87ea6aef88c69ce15d3aff7d29e53
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN git clone https://github.com/erlang-ls/erlang_ls.git && \

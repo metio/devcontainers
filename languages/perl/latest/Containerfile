@@ -2,7 +2,7 @@
 # Based on the official image available at https://hub.docker.com/_/perl
 
 # hadolint ignore=DL3007
-FROM docker.io/library/perl:latest
+FROM docker.io/library/perl:latest@sha256:a1f1e01d2223196df65622d4501415a745b6ba728b05991539cf81c6af187f82
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN cpanm PLS

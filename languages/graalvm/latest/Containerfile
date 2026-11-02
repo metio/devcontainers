@@ -1,7 +1,7 @@
 # Image for Java development with GraalVM
 # Based on the official image available at https://github.com/graalvm/container
 
-FROM ghcr.io/graalvm/graalvm-community:22
+FROM ghcr.io/graalvm/graalvm-community:22@sha256:d3ec7410ee3303b34d761db9fb4c4b23ed64286ccea0fac29f921c493cfa0bba
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 # Install Java language server
@@ -15,9 +15,9 @@ RUN curl --location --silent https://download.eclipse.org/jdtls/milestones/${JDT
 # Install Maven
 ENV MAVEN_HOME /usr/share/maven
 
-COPY --from=maven:3-eclipse-temurin-11 ${MAVEN_HOME} ${MAVEN_HOME}
-COPY --from=maven:3-eclipse-temurin-11 /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
-COPY --from=maven:3-eclipse-temurin-11 /usr/share/maven/ref/settings-docker.xml /usr/share/maven/ref/settings-docker.xml
+COPY --from=maven:3-eclipse-temurin-11@sha256:a2e6761472e54c817f185ab9c8e0f5e9f2aaff62cb1ed6a1b842f6faf08bd9e5 ${MAVEN_HOME} ${MAVEN_HOME}
+COPY --from=maven:3-eclipse-temurin-11@sha256:a2e6761472e54c817f185ab9c8e0f5e9f2aaff62cb1ed6a1b842f6faf08bd9e5 /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
+COPY --from=maven:3-eclipse-temurin-11@sha256:a2e6761472e54c817f185ab9c8e0f5e9f2aaff62cb1ed6a1b842f6faf08bd9e5 /usr/share/maven/ref/settings-docker.xml /usr/share/maven/ref/settings-docker.xml
 
 RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 

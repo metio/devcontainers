@@ -2,7 +2,7 @@
 # Based on the official image available at https://hub.docker.com/_/clojure
 
 # hadolint ignore=DL3007
-FROM docker.io/library/clojure:latest
+FROM docker.io/library/clojure:latest@sha256:3e3b2bd43c07bd58d4ff9665633a23503cc5bdf9f442b61c51ab54302b324e1b
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 # hadolint ignore=DL3008

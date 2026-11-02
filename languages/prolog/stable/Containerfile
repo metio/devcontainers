@@ -1,7 +1,7 @@
 # Image for Prolog development
 # Based on the official image available at https://hub.docker.com/_/swipl
 
-FROM docker.io/library/swipl:stable
+FROM docker.io/library/swipl:stable@sha256:652375a3cbfd2ecbfa4f30b218d22b3c5fb3e60433996093125512fd023ad375
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN swipl -t 'pack_install(lsp_server, [interactive(false)]).'
