@@ -1,7 +1,7 @@
 # Image for Haskell development
 # Based on the official image available at https://hub.docker.com/_/haskell
 
-FROM docker.io/library/haskell:9.2
+FROM docker.io/library/haskell:9.14@sha256:040332b9b5faf54c07364152dc55b98752104f0ca1587e72160d8c0a2dda65b7
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN curl -O https://downloads.haskell.org/~ghcup/x86_64-linux-ghcup && \

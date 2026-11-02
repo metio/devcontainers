@@ -2,7 +2,7 @@
 # Based on the official image available at https://hub.docker.com/_/python
 
 # hadolint ignore=DL3007
-FROM docker.io/library/python:latest
+FROM docker.io/library/python:latest@sha256:f17ec845ebdd4f3347431579e1c22eaeec82913f039f2a54b937c7ff870bacdb
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN pip install python-lsp-server

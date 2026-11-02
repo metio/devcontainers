@@ -1,7 +1,7 @@
 # Image for NodeJS development
 # Based on the official image available at https://hub.docker.com/_/node
 
-FROM docker.io/library/node:18
+FROM docker.io/library/node:18@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 RUN npm install -g typescript-language-server

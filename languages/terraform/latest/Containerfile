@@ -2,7 +2,7 @@
 # Based on the official image available at https://hub.docker.com/r/hashicorp/terraform
 
 # hadolint ignore=DL3007
-FROM docker.io/hashicorp/terraform:latest
+FROM docker.io/hashicorp/terraform:latest@sha256:a5d5a5a892c98f60fcbfa81eac2a40fc19e7b3fa7719bccae10ff6111d22524a
 LABEL wtf.metio.ci.root-allowed="development container run with the workspace mounted"
 
 ENV TF_LS_VERSION=0.32.4
